@@ -1,0 +1,15 @@
+:root{
+    --bg-color:rgb(219, 212, 207);
+    --container-bg-color: rgb(230, 230, 231);
+    --text-color: rgb(2, 2, 2);
+    --item-bg-color: rgb(230, 116, 24);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 100vw;
+    height: 500vh;
+    margin: 0;
+}
+.container{
+    background-color: var(--container-bg-color);
+    height: 300px;
+}
