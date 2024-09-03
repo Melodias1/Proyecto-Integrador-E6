@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root{
     --bg-color:rgb(219, 212, 207);
     --container-bg-color: rgb(230, 230, 231);
@@ -13,3 +14,27 @@
     background-color: var(--container-bg-color);
     height: 300px;
 }
+=======
+body{
+    background-color: aqua;
+
+
+}
+
+h1{
+    font-size: 36px;
+    color: darkblue;
+    text-align: center;
+}
+
+.row{
+    background-color: rgb(235, 234, 225);
+    margin-bottom: 20px;
+    color: rgb(255, 124, 10);
+
+
+
+
+}
+
+>>>>>>> 4e3f688a84ac92b420f716e8957a582dbe474118
