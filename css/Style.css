@@ -1,0 +1,22 @@
+body{
+    background-color: aqua;
+
+
+}
+
+h1{
+    font-size: 36px;
+    color: darkblue;
+    text-align: center;
+}
+
+.row{
+    background-color: rgb(235, 234, 225);
+    margin-bottom: 20px;
+    color: rgb(255, 124, 10);
+
+
+
+
+}
+
