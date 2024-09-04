@@ -46,10 +46,12 @@
         </div>
     </nav>
 
-<div class="container bg-white" >
+<!-- <div class="container bg-white" > -->
 
-<div class="row">
-    <h1 style="border-bottom:10px solid #FF900D ; border-radius: 5px; width: fit-content; margin-left: 460px;">Sobre Nosotros</h1>
+<div class="container-fluid bg-white">
+    <div class="row justify-content-center">
+        <h1 class="" style="border-bottom:10px solid #FF900D ; border-radius: 5px; width: fit-content; display: inline-block;">Sobre Nosotros</h1>
+    </div>
 </div><!--DIV de row-->
 
     <div class="row">
@@ -64,20 +66,24 @@
         </div><!--DIV de parrafo-->
     </div><!--DIV de row-->
 
-    <div class="row">
-        <div id="imagen">
-        <img src="../assets/comida.jpg"  alt="Comida deliciosa" style="max-width: 600px; margin-bottom: 30px;">
-        </div><!--DIV de imagen-->
-    </div><!--DIV de row-->
-    <div class="row">
-        <div class="col-sm">
-            <h1 style="border-bottom:10px solid #FF900D ; border-radius: 5px; width: fit-content; margin-left: 460px;">Quienes somos</h1>
+    <div class="container bg-white">
+        <div class="row">
+            <div id="imagen">
+            <img src="../assets/comida.jpg" style="margin:auto" alt="Comida deliciosa" style="max-width: 600px; margin-bottom: 30px;">
+            </div><!--DIV de imagen-->
+        </div><!--DIV de row-->
+    </div>
+    <div class="container-fluid mt-5" >
+        <div class="row text-center">
+            <div class="col-sm ">
+                <h1 style="border-bottom:10px solid #FF900D ; border-radius: 5px; width: fit-content; display: inline-block;">Quienes somos</h1>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <div class="card">
-                <img class= "rounded-circle"    height="215"    src="../assets/Foto Ricardo Cervantes.jpeg" alt="Ricardo Aurelio Cervantes Vergara">
+            <div class="card justify-content-center">
+                <img class= "rounded-circle img-fluid"   style="margin:auto; object-fit: fill;"    src="../assets/Foto Ricardo Cervantes.jpeg" alt="Ricardo Aurelio Cervantes Vergara">
                 <div class="card-body" style="background-color: #FF900D;">
                 <h5 class="card-title text-white">Ricardo Aurelio Cervantes Vergara</h5>
                 <p class="card-text bg-transparent text-white">Hola! En esta ocasion me tocó colaborar en la creación de la página Acerca de Nosotros estableciendo containers y rows para organizar la pagina web.</p>
@@ -86,7 +92,7 @@
         </div><!--DIV col-sm-3-->
         <div class="col-sm-3">
             <div class="card">
-                <img class= "rounded-circle"  height="215"  src="../assets/foto-carlos.jpg" alt="Imagen">
+                <img class= "rounded-circle" style="margin:auto; object-fit: fill;" height="215"  src="../assets/foto-carlos.jpg" alt="Imagen">
                 <div class="card-body"style="background-color: #FF900D;">
                 <h5 class="card-title text-white">Carlos Gabriel Santana Rivera</h5>
                 <p class="card-text bg-transparent text-white">Desarrollando de manera Colaborativa la Aplicación Web GuarniAPP, me enfoco principalmente en el Frontend</p>
@@ -95,7 +101,7 @@
         </div>
         <div class="col-sm-3">
             <div class="card">
-                <img class= "rounded-circle"  height="215"  src="../assets/file.jpg" alt="Alberto Herrera Nieto">
+                <img class= "rounded-circle" style="margin:auto; object-fit: fill;" height="215"  src="../assets/file.jpg" alt="Alberto Herrera Nieto">
                 <div class="card-body " style="background-color: #FF900D;">
                 <h5 class="card-title text-white">Alberto Herrera Nieto</h5>
                 <p class="card-text bg-transparent text-white">Desarrollé tanto el frontend como el backend de esta página web, integrando tecnologías como HTML, CSS, Bootstrap y JavaScript para un diseño responsive</p>
@@ -105,7 +111,7 @@
         <div class="col-sm-3">
             <div class="card">
 
-                <img class= "rounded-circle"  height="215"  src="../assets/EGG.jpg" alt="Imagen">
+                <img class= "rounded-circle" style="margin:auto; object-fit: fill;" height="215"  src="../assets/EGG.jpg" alt="Imagen">
                 <div class="card-body overflow-auto" height="320" style="background-color: #FF900D;">
                 <h5 class="card-title text-white">Jesús Enrique Gutiérrez Gutiérrez</h5>
                 <p class="card-text bg-transparent text-white">Colabore en la elaboracion de estilos con CSS</p>
@@ -117,7 +123,7 @@
     <div class="row">
         <div class="col-sm-3">
             <div class="card">
-                <img class= "rounded-circle"  height="215"  src="../assets/Foto Jeimmie.jpg" alt="Jeimmie Gabriela Espino">
+                <img class= "rounded-circle" style="margin:auto; object-fit: fill;" height="215"  src="../assets/Foto Jeimmie.jpg" alt="Jeimmie Gabriela Espino">
                 <div class="card-body" style="background-color: #FF900D;">
                 <h5 class="card-title text-white">Jeimmie Gabriela Espino Ramírez</h5>
                 <p class="card-text bg-transparent text-white">Participé en el desarrollo de HTML de la página WEB</p>
@@ -126,7 +132,7 @@
         </div>
         <div class="col-sm-3">
             <div class="card">
-                <img class= "rounded-circle "  height="215"   src="../assets/foto_Jesus.jpg" alt="Imagen">
+                <img class= "rounded-circle " style="margin:auto; object-fit: fill;" height="215"   src="../assets/foto_Jesus.jpg" alt="Imagen">
                 <div class="card-body" style="background-color: #FF900D;">
                 <h5 class="card-title text-white">Jesús Alejandro Gutiérrez Aguila</h5>
                 <p class="card-text bg-transparent text-white">Participe en el frontend de esta pagina web</p>
@@ -135,7 +141,7 @@
         </div>
         <div class="col-sm-3">
             <div class="card">
-                <img class= "rounded-circle"  height="215"  src="" alt="Imagen">
+                <img class= "rounded-circle" style="margin:auto; object-fit: fill;" height="215"  src="" alt="Imagen">
                 <div class="card-body" style="background-color: #FF900D;">
                 <h5 class="card-title text-white">Jess</h5>
                 <p class="card-text bg-transparent text-white" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, sit!</p>
@@ -144,7 +150,7 @@
         </div>
         <div class="col-sm-3">
             <div class="card">
-                <img class= "rounded-circle"  height="215"  src="../assets/foto_franciscoMartinez.png" alt="Imagen">
+                <img class= "rounded-circle img-fluid" style="margin:auto; object-fit: fill;"    src="../assets/foto_franciscoMartinez.png" alt="Imagen">
                 <div class="card-body" style="background-color: #FF900D;">
                 <h5 class="card-title text-white ">Francisco Martinez</h5>
                 <p class="card-text bg-transparent text-white" style="height: 130px;">Durante el proyecto participe tanto en el diseño del UX/UI, el Frontend asi como en el Backend mediante una metodologia Agile Scrum</p>
