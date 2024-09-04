@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 :root{
-    --bg-color:rgb(219, 212, 207);
-    --container-bg-color: rgb(230, 230, 231);
-    --text-color: rgb(2, 2, 2);
-    --item-bg-color: rgb(230, 116, 24);
+    --bg-color:rgb(255, 255, 255);
+    --container-bg-color: rgb(255, 245, 225);
+    --text-color: rgb(0, 22, 10);
+    --item-bg-color: rgb(255, 143, 15);
     background-color: var(--bg-color);
     color: var(--text-color);
     width: 100vw;
@@ -13,28 +12,14 @@
 .container{
     background-color: var(--container-bg-color);
     height: 300px;
+    text-align: center;
 }
-=======
 body{
-    background-color: aqua;
-
-
+    background-color: var(--bg-color);
 }
 
 h1{
     font-size: 36px;
-    color: darkblue;
+    color: var(--text-color);
     text-align: center;
 }
-
-.row{
-    background-color: rgb(235, 234, 225);
-    margin-bottom: 20px;
-    color: rgb(255, 124, 10);
-
-
-
-
-}
-
->>>>>>> 4e3f688a84ac92b420f716e8957a582dbe474118
