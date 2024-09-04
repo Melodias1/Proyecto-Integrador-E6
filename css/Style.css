@@ -25,18 +25,18 @@ footer {
 
 h1{
     font-family: "Poppins", sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     font-style: normal;
-    font-size: 30px;
+    font-size: 50px;
     color: var(--text-color);
     text-align: center;
 }
 
 p{
     font-family: "Poppins", sans-serif;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
-    font-size: 12px;
+    font-size: 18px;
     background-color: var(--bg-color);
     text-align: center;
 }
