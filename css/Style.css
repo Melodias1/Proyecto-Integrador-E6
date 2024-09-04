@@ -9,17 +9,71 @@
     height: 500vh;
     margin: 0;
 }
+/*Patrick Hand Font
+.patrick-hand-regular {
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+*/
+/* Comic Neue (Elegir uno)
+.comic-neue-light {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .comic-neue-regular {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .comic-neue-bold {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .comic-neue-light-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .comic-neue-regular-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .comic-neue-bold-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: italic;
+  }
+  */
 .container{
     background-color: var(--container-bg-color);
     height: 300px;
     text-align: center;
 }
-body{
-    background-color: var(--bg-color);
-}
+
 
 h1{
-    font-size: 36px;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 70px;
     color: var(--text-color);
+    text-align: center;
+}
+
+p{
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 30px;
+    background-color: var(--bg-color);
     text-align: center;
 }
