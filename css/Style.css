@@ -10,6 +10,10 @@
     height: 500vh;
     margin: 0;
 }
+footer {
+  color: #ecf0f1;
+  padding: 20px 0;
+}
 /*Patrick Hand Font
 .patrick-hand-regular {
     font-family: "Patrick Hand", cursive;
