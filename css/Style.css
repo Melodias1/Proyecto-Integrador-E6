@@ -1,3 +1,80 @@
-.card-body{
-    background-color: rgb(255, 136, 0);
+
+:root{
+    --bg-color:rgb(255, 255, 255);
+    --container-bg-color: rgb(255, 245, 225);
+    --text-color: rgb(0, 22, 10);
+    --item-bg-color: rgb(255, 143, 15);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 100vw;
+    height: 500vh;
+    margin: 0;
+}
+/*Patrick Hand Font
+.patrick-hand-regular {
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+*/
+/* Comic Neue (Elegir uno)
+.comic-neue-light {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .comic-neue-regular {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .comic-neue-bold {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .comic-neue-light-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .comic-neue-regular-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .comic-neue-bold-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: italic;
+  }
+  */
+.container{
+    background-color: var(--container-bg-color);
+    height: 300px;
+    text-align: center;
+}
+
+
+h1{
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 70px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+p{
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 30px;
+    background-color: var(--bg-color);
+    text-align: center;
 }
