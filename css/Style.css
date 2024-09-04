@@ -29,7 +29,7 @@ h1{
     font-style: normal;
     font-size: 50px;
     color: var(--text-color);
-    text-align: justify;
+    text-align: center;
 }
 
 p{
