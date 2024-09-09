@@ -104,3 +104,9 @@ h2 {
     font-weight: bold;
     color: black;
 }
+
+.nav-link:hover {
+    
+    
+    text-decoration: underline white 3px ; 
+}
