@@ -57,11 +57,11 @@
 }
 
 .custom-input {
-    background-color: #FF900D;
+    background-color: #FFF5E1;
 }
 
 .custom-input:hover{
-    background-color: #ff9f32;
+    background-color: #f8ebd2;
     font-weight: bold;
     color: white;
 }
