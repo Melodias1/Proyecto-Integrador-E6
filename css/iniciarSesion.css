@@ -1,0 +1,31 @@
+h1{
+    font-style: italic;
+    font-weight: bolder ;
+    border-bottom: 10px solid #FF900D;
+    display: inline-block;
+}
+
+body{
+    text-align: center;
+}
+
+img{
+    border-radius: 50%;
+    width: 250px;
+    height: 200px;
+}
+
+button{
+    width: 150px;
+    height: 40px;    
+}
+
+p{
+    font-style: italic;
+    font-weight: bolder ;
+    text-decoration: overline;
+}
+
+#registrarse{
+    margin-left: 30px;
+}
