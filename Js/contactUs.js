@@ -15,7 +15,7 @@ let isValid = true;
 
 
 function validarTelefono(){
-    if(txtTelefono.value.length==9){
+    if(txtTelefono.value.length<9){
         return false;
     }//?length==9
 
