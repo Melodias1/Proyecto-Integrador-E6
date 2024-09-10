@@ -56,17 +56,23 @@
         role="alert" id="alertValidaciones">
     <p id="alertValidacionesTexto"></p>
     </div>
+    <!--validacion positiva-->
+    <div class="alert alert-success fade show" style="display:none;"
+        role="alert" id="confirmValidaciones">
+    <p id="confirmValidacionesTexto"></p>
+    </div>
     <form class="needs-validation col-md-6" novalidate>
             <div class="form-floating mb-3">
-                <input type="Nombre" class="form-control custom-input" id="Nombre" placeholder="Jesus Gutierrez">
+                <input type="text" class="form-control custom-input" id="Nombre" placeholder="Jesus Gutierrez">
                 <label for="floatingInput">Nombre</label>
                 <div class="invalid-feedback">
                     Nombre inválido
                   </div>
+            
             </div>
             <br>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control custom-input" id="Correo-electronico" placeholder="name@example.com">
+                <input type="email" class="form-control custom-input" id="Email" placeholder="name@example.com">
                 <label for="floatingInput">Correo electrónico</label>
                 <div class="invalid-feedback">
                     Correo no válido
@@ -89,13 +95,15 @@
                   </div>
             </div>
             <br>
-            <div class="text-center p-3 mt-5" id="Enviar">
-                <button class="btn btn-lg text-white btn-custom">Enviar</button>
+            <div class="text-center p-3 mt-5" >
+                <button class="btn btn-lg text-white btn-custom navbar-container" id="btnEnviar">Enviar</button>
             </div>
     </form>
         
         </div>
     </div>
+
+    
 
 
 
