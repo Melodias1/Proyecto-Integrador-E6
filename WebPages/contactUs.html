@@ -41,41 +41,56 @@
         </div>
     </nav>
 
-    
+<div class="container">
+<div class="row justify-content-center">
 <h1>Contactanos</h1><br><br>
 <h3>"En caso de querer contactar con el equipo de soporte, puede dejar sus datos en el siguiente formulario y nuestro equipo se pondra en contacto con usted."</h3><br><br>
 
-<div class="row">
-<div class="formulario">
+
+    <div class="alert alert-danger fade show" style="display:none;"
+    role="alert" id="alertValidaciones">
+<p id="alertValidacionesTexto"></p>
+</div>
+<form class="needs-validation" novalidate>
 
 <div class="form-floating mb-3">
     <input type="Nombre" class="form-control" id="Nombre" placeholder="Jesus Gutierrez">
     <label for="floatingInput">Nombre</label>
+    <div class="invalid-feedback">
+        Nombre inválido
+      </div>
   </div><br>
 
   <div class="form-floating mb-3">
-  <input type="email" class="form-control" id="Correo electronico" placeholder="name@example.com">
+  <input type="email" class="form-control" id="Correo-electronico" placeholder="name@example.com">
   <label for="floatingInput">Correo electrónico</label>
+  <div class="invalid-feedback">
+    Correo inválido
+  </div>
 </div><br>
 
   <div class="form-floating mb-3">
     <input type="telefono" class="form-control" id="Telefono" placeholder="+52 234 456 7890">
     <label for="floatingInput">No. de telefono</label>
+    <div class="invalid-feedback">
+        Numero inválido
+      </div>
   </div><br>
 
   <div class="form-floating mb-3">
     <textarea class="form-control" placeholder="Leave a comment here" id="Comentarios" style="height: 100px"></textarea>
     <label for="floatingTextarea2">Comentarios</label>
+    <div class="invalid-feedback">
+        Comentarios inválidos
+      </div>
   </div><br>
-
-  
 
 
 
 <button type="button" id="enviar" class="btn btn-warning">Enviar</button>
-</div>
-</div> 
-
+</form>
+</div> <!--div class="row"-->
+</div> <!--div class="container"-->
 
 
 <script src="../Js/contactUs.js"></script>
