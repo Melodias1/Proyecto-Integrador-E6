@@ -49,42 +49,53 @@
     <div class="container bg-white">
         <div class="row justify-content-center">
             <h1 id="title">Contactanos</h1>
-        </div>
         <br>
-        <div class="row justify-content-center">
             <h3 id="subtitle">En caso de querer contactar con el equipo de soporte, puede dejar sus datos en el siguiente formulario y nuestro equipo se pondra en contacto con usted.</h3>
-        </div>
         <br>
+        <div class="alert alert-danger fade show" style="display:none;"
+        role="alert" id="alertValidaciones">
+    <p id="alertValidacionesTexto"></p>
     </div>
-
-
-    <div class="form row justify-content-center">
-        <form action="" class="col-md-6">
+    <form class="needs-validation col-md-6" novalidate>
             <div class="form-floating mb-3">
                 <input type="Nombre" class="form-control custom-input" id="Nombre" placeholder="Jesus Gutierrez">
                 <label for="floatingInput">Nombre</label>
+                <div class="invalid-feedback">
+                    Nombre inválido
+                  </div>
             </div>
             <br>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control custom-input" id="Correo electronico" placeholder="name@example.com">
+                <input type="email" class="form-control custom-input" id="Correo-electronico" placeholder="name@example.com">
                 <label for="floatingInput">Correo electrónico</label>
+                <div class="invalid-feedback">
+                    Correo no válido
+                  </div>
             </div>
             <br>
             <div class="form-floating mb-3">
                 <input type="telefono" class="form-control custom-input" id="Telefono" placeholder="+52 234 456 7890">
                 <label for="floatingInput">No. de telefono</label>
+                <div class="invalid-feedback">
+                    Numero inválido
+                  </div>
             </div>
             <br>
             <div class="form-floating mb-3">
                 <textarea class="form-control custom-input" placeholder="Leave a comment here" id="Comentarios" style="height: 100px"></textarea>
                 <label for="floatingTextarea2">Comentarios</label>
+                <div class="invalid-feedback">
+                    Comentarios  no válidos
+                  </div>
             </div>
             <br>
-            <button type="button" id="enviar" class="btn btn-warning">Enviar</button>
-        </form>
+            <div class="text-center p-3 mt-5" id="Enviar">
+                <button class="btn btn-lg text-white btn-custom">Enviar</button>
+            </div>
+    </form>
         
+        </div>
     </div>
-
 
 
 
