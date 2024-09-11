@@ -47,6 +47,7 @@
     background-color: var(--bg-color);
     text-align: justify;
     max-width: 600px; 
+    margin-bottom: 20px;
 }
 
 #enviar{
