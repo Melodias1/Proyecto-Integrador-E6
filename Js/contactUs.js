@@ -1,102 +1,76 @@
-const btnEnviar = document.getElementById ("btnEnviar");
+const btnEnviar = document.getElementById("btnEnviar");
 const alertValidaciones = document.getElementById("alertValidaciones");
 const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
-const confirmValidaciones = document.getElementById("confirmValidaciones")
-const confirmValidacionesTexto = document.getElementById("confirmValidacionesTexto")
+const confirmValidaciones = document.getElementById("confirmValidaciones");
+const confirmValidacionesTexto = document.getElementById("confirmValidacionesTexto");
 const txtNombre = document.getElementById("Nombre");
 const txtEmail = document.getElementById("Email");
 const txtTelefono = document.getElementById("Telefono");
 const txtComentarios = document.getElementById("Comentarios");
 
+const nombreError = document.getElementById("nombreError");
+const correoError = document.getElementById("correoError");
+const telefonoError = document.getElementById("telefonoError");
+const comentariosError = document.getElementById("comentariosError");
 
 
-
-let isValid = true;
-
-
-function validarTelefono(){
-    if(txtTelefono.value.length<9){
+function validarTelefono() {
+    if (txtTelefono.value.length < 10 || isNaN(txtTelefono.value) || Number(txtTelefono.value) <= 0) {
         return false;
-    }//?length==9
-
-    if (isNaN(txtTelefono.value)){
-        return false;
-    }//*isNaN Prueba que sea un numero
-    
-    if(Number(txtTelefono.value)<=0){
-        return false;
-    }//? <=0 Prueba que el valor elimina el valor que es menor o igual a 0
-
+    }
     return true;
-}//* validarTelefono
+}
 
 function isValidEmail() {
-
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  
     return regex.test(txtEmail.value);
-  }
+}
 
-// boton enviar
-
- btnEnviar.addEventListener("click",function(event){
+btnEnviar.addEventListener("click", function(event) {
     event.preventDefault();
 
-        txtNombre.style.border="";
-        txtTelefono.style.border="";
-        txtEmail.style.border="";
-        alertValidacionesTexto.innerHTML=""
-        alertValidaciones.style.display="none"
-        confirmValidacionesTexto.innerHTML=""
-        confirmValidaciones.style.display="none"
-        isValid= true
+    // Ocultar todos los mensajes de error
+    nombreError.textContent = "";
+    correoError.textContent = "";
+    telefonoError.textContent = "";
+    comentariosError.textContent = "";
+    alertValidacionesTexto.innerHTML = "";
+    alertValidaciones.style.display = "none";
+    confirmValidacionesTexto.innerHTML = "";
+    confirmValidaciones.style.display = "none";
 
+    let isValid = true;
 
-    if (!validarTelefono()){
-        txtTelefono.style.border= "solid red medium";
-        alertValidacionesTexto.innerHTML+="El <strong>Teléfono</strong> no es correcto.<br/>";
-        alertValidaciones.style.display="block";
+    // Validar nombre
+    if (txtNombre.value.length < 3) {
+        nombreError.textContent = "El nombre no es válido. Debe tener al menos 3 caracteres.";
         isValid = false;
-    }//* validarTelefono
+    }
 
-    if (!isValidEmail()){
-        txtEmail.style.border= "solid red medium";
-        alertValidacionesTexto.innerHTML+=" El <strong>Correo Electronico</strong> no es valido.<br/>";
-        alertValidaciones.style.display="block";
+    // Validar email
+    if (!isValidEmail()) {
+        correoError.textContent = "El correo electrónico no es válido.";
         isValid = false;
-    }//* validaremail
-   
+    }
 
-        if (txtNombre.value.length<3) {
-            txtNombre.style.border= "solid red medium";
-        alertValidacionesTexto.innerHTML+=" El <strong>Nombre</strong> no es Valido.<br/>";
-        alertValidaciones.style.display="block";
+    // Validar teléfono
+    if (!validarTelefono()) {
+        telefonoError.textContent = "El teléfono no es válido. Debe ser un número de al menos 10 dígitos.";
         isValid = false;
-             
-        
-        }// nombreIsValid
+    }
 
-        if (txtComentarios.value.length<=0) {
-            txtComentarios.style.border= "solid red medium";
-        alertValidacionesTexto.innerHTML+=" Por favor,escriba su <strong>mensaje</strong>.<br/>";
-        alertValidaciones.style.display="block";
+    // Validar comentarios
+    if (txtComentarios.value.length <= 0) {
+        comentariosError.textContent = "Por favor, escriba su mensaje.";
         isValid = false;
-             
-        
-        }//isMensajevalid
+    }
 
-
-        if(isValid){
-            confirmValidaciones.innerHTML+=" Se <strong>Envio</strong> su mensaje correctamente, en breve nos pondremos en contacto<br/>";
-        confirmValidaciones.style.display="block";
-
-        
-        } // is valid
-
- })
-
- 
-
-
-
-
+    // Mostrar alertas de validación
+    if (!isValid) {
+        alertValidacionesTexto.innerHTML = "Por favor, corrija los siguientes errores:";
+        alertValidaciones.style.display = "block";
+    } else {
+        confirmValidacionesTexto.innerHTML = "El registro fue exitoso, favor de revisar su correo electrónico.";
+        confirmValidaciones.style.display = "block";
+    }
+});

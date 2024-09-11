@@ -49,7 +49,17 @@
     max-width: 600px; 
     margin-bottom: 20px;
 }
+.error-messagetext-danger {
+    color: red;
+    font-size: 0.875em;
+    display: block;
+    margin-top: 0.5em;
+}
 
+.form-floating {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
 #enviar{
     background-color: #FF900D;
     width: 100px;
@@ -67,8 +77,8 @@
     color: white;
 }
 
-.boton-hover:hover{
+.btn-custom:hover {
+    background-color: #DEC54E;
     font-weight: bold;
-    background-color: #FF900D;
-    border: 3px solid black
+    color: black;
 }
