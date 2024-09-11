@@ -24,6 +24,23 @@ function isValidEmail() {
     return regex.test(txtEmail.value);
 }
 
+//===codigo para enviar email===
+const serviceId ="service_yykrpj5";
+const templateId ="template_hvvj76z";
+const apikey = "SrhL_hudVa097-FRV";
+
+
+var templateParams = {
+    to_name: txtNombre.value,
+    from_name: 'GuarniAPP',
+    message_html: 'Recibimos tu mensaje, en breve nos comunicaremos'
+  };
+
+  
+
+
+
+
 btnEnviar.addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -68,20 +85,19 @@ btnEnviar.addEventListener("click", function(event) {
         alertValidacionesTexto.innerHTML = "Por favor, corrija lo siguiente:";
         alertValidaciones.style.display = "block";
     } else {
-        enviarCorreo();
+        emailjs.send(serviceId, templateId, templateParams)
+    .then(function(response) {
+      console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+      console.log('FAILED...', error);
+    });
         confirmValidacionesTexto.innerHTML = "¡Gracias por contactarnos!, revise su correo electrónico.";
         confirmValidaciones.style.display = "block";
-    }
+    }// else
 });    // Alertas de validación
-const serviceId ="service_yykrpj5";
-const templateId ="template_hvvj76z";
-const apikey = "SrhL_hudVa097-FRV";
 
-function enviarCorreo() {
-    emailjs.send(serviceId, templateId, {
-        from_name: txtNombre.value,
-        from_email: txtEmail.value,
-        phone: txtTelefono.value,
-        message: txtComentarios.value
-    }, apikey)
-};//enviarCorreo
+
+
+
+
+    
