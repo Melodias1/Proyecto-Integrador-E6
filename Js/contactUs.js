@@ -87,7 +87,7 @@ function isValidEmail() {
 
 
         if(isValid){
-            confirmValidaciones.innerHTML+=" El <strong>Registro</strong> fue exitoso, favor de revisar su correo electronico.<br/>";
+            confirmValidaciones.innerHTML+=" Se <strong>Envio</strong> su mensaje correctamente, en breve nos pondremos en contacto<br/>";
         confirmValidaciones.style.display="block";
 
         

@@ -66,3 +66,9 @@
     font-weight: bold;
     color: white;
 }
+
+.boton-hover:hover{
+    font-weight: bold;
+    background-color: #FF900D;
+    border: 3px solid black
+}
