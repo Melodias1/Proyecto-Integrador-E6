@@ -15,10 +15,8 @@ const comentariosError = document.getElementById("comentariosError");
 
 
 function validarTelefono() {
-    if (txtTelefono.value.length < 10 || isNaN(txtTelefono.value) || Number(txtTelefono.value) <= 0) {
-        return false;
-    }
-    return true;
+    const regex = /^\+?[1-9]\d{1,14}$/;
+    return regex.test(txtTelefono.value);
 }
 
 function isValidEmail() {
@@ -29,7 +27,7 @@ function isValidEmail() {
 btnEnviar.addEventListener("click", function(event) {
     event.preventDefault();
 
-    // Ocultar todos los mensajes de error
+    // Oculta mensajes de error
     nombreError.textContent = "";
     correoError.textContent = "";
     telefonoError.textContent = "";
@@ -41,36 +39,49 @@ btnEnviar.addEventListener("click", function(event) {
 
     let isValid = true;
 
-    // Validar nombre
+    
     if (txtNombre.value.length < 3) {
         nombreError.textContent = "El nombre no es válido. Debe tener al menos 3 caracteres.";
         isValid = false;
-    }
+    }// Validar nombre
 
-    // Validar email
+   
     if (!isValidEmail()) {
         correoError.textContent = "El correo electrónico no es válido.";
         isValid = false;
-    }
+    } // Validar email
 
-    // Validar teléfono
+    
     if (!validarTelefono()) {
         telefonoError.textContent = "El teléfono no es válido. Debe ser un número de al menos 10 dígitos.";
         isValid = false;
-    }
+    }// Validar teléfono
 
-    // Validar comentarios
+    
     if (txtComentarios.value.length <= 0) {
         comentariosError.textContent = "Por favor, escriba su mensaje.";
         isValid = false;
-    }
+    }// Validar comentarios
 
-    // Mostrar alertas de validación
+
     if (!isValid) {
-        alertValidacionesTexto.innerHTML = "Por favor, corrija los siguientes errores:";
+        alertValidacionesTexto.innerHTML = "Por favor, corrija lo siguiente:";
         alertValidaciones.style.display = "block";
     } else {
-        confirmValidacionesTexto.innerHTML = "El registro fue exitoso, favor de revisar su correo electrónico.";
+        enviarCorreo();
+        confirmValidacionesTexto.innerHTML = "¡Gracias por contactarnos!, revise su correo electrónico.";
         confirmValidaciones.style.display = "block";
     }
-});
+});    // Alertas de validación
+const serviceId ="service_yykrpj5";
+const templateId ="template_hvvj76z";
+const apikey = "SrhL_hudVa097-FRV";
+
+function enviarCorreo() {
+    emailjs.send(serviceId, templateId, {
+        from_name: txtNombre.value,
+        from_email: txtEmail.value,
+        phone: txtTelefono.value,
+        message: txtComentarios.value
+    }, apikey)
+};//enviarCorreo
