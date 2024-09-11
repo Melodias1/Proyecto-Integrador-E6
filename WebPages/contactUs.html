@@ -69,37 +69,28 @@
         <div class="col-md-8">
             <form class="needs-validation col-md-6" novalidate>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control custom-input" id="Nombre" placeholder="Jesus Gutierrez">
+                    <input type="text" class="form-control custom-input" id="Nombre" placeholder="Ingresa tu nombre" autocomplete="family-name">
                     <label for="floatingInput">Nombre</label>
-                    <div class="invalid-feedback">
-                        Nombre inválido
-                      </div>
-                
+                    <span id="nombreError" class="error-messagetext-danger"></span>
                 </div>
-                <br>
+                
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control custom-input" id="Email" placeholder="name@example.com">
                     <label for="floatingInput">Correo electrónico</label>
-                    <div class="invalid-feedback">
-                        Correo no válido
-                      </div>
+                    <span id="correoError" class="error-messagetext-danger"></span>
                 </div>
-                <br>
+                
                 <div class="form-floating mb-3">
                     <input type="telefono" class="form-control custom-input" id="Telefono" placeholder="+52 234 456 7890">
                     <label for="floatingInput">No. de telefono</label>
-                    <div class="invalid-feedback">
-                        Numero inválido
-                      </div>
+                    <span id="telefonoError" class="error-messagetext-danger"></span>
                 </div>
-                <br>
+                
                 <div class="form-floating mb-3">
                     <textarea class="form-control custom-input" placeholder="Leave a comment here" id="Comentarios" style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Comentarios</label>
-                    <div class="invalid-feedback">
-                        Comentarios  no válidos
-                      </div>
-                </div>
+                    <span id="comentariosError" class="error-messagetext-danger"></span>
+                </div>                
                 <br>
                 <div class="text-center p-3 mt-5" >
                     <button class="btn btn-lg text-white btn-custom navbar-container" id="btnEnviar">Enviar</button>
