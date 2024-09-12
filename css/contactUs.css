@@ -82,3 +82,51 @@
     font-weight: bold;
     color: black;
 }
+
+/*footer*/
+
+footer{
+
+    border: solid, #FF900D, 2px;
+    background-color: #FF900D;
+    }
+
+h5{
+    color: #ecf0f1;
+}
+    
+ul{
+    margin-right: 30px;
+    margin-top: 15px;
+}
+
+a{
+    color: #ecf0f1;
+    text-decoration: none;
+}
+        
+.titulos-footer{
+    display: flex;
+    text-align: center; 
+ }
+
+
+
+
+#Inicio{
+        margin-left: 50%;
+        color: #ecf0f1;
+        
+}
+
+.sub_compañia{
+    margin-left: 63%;
+    color: #ecf0f1;
+    text-decoration: none;
+    margin-top: 50;
+}
+
+#ulc, #ulc2{
+    list-style: none;
+}
+
