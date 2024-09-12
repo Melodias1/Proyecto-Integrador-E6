@@ -33,10 +33,9 @@ const apikey = "SrhL_hudVa097-FRV";
 var templateParams = {
     to_name: txtNombre.value,
     from_name: 'GuarniAPP',
-    message_html: 'Recibimos tu mensaje, en breve nos comunicaremos'
-  };
+    message_html: 'Recibimos tu mensaje, en breve nos comunicaremos.'
+    };
 
-  
 
 
 
@@ -62,7 +61,7 @@ btnEnviar.addEventListener("click", function(event) {
         isValid = false;
     }// Validar nombre
 
-   
+
     if (!isValidEmail()) {
         correoError.textContent = "El correo electrónico no es válido.";
         isValid = false;
@@ -70,7 +69,7 @@ btnEnviar.addEventListener("click", function(event) {
 
     
     if (!validarTelefono()) {
-        telefonoError.textContent = "El teléfono no es válido. Debe ser un número de al menos 10 dígitos.";
+        telefonoError.textContent = "El teléfono no es válido. Debe ser un número de 10 dígitos.";
         isValid = false;
     }// Validar teléfono
 
@@ -82,16 +81,16 @@ btnEnviar.addEventListener("click", function(event) {
 
 
     if (!isValid) {
-        alertValidacionesTexto.innerHTML = "Por favor, corrija lo siguiente:";
+        alertValidacionesTexto.innerHTML = "Por favor, corrija los errores en el formulario.";
         alertValidaciones.style.display = "block";
     } else {
         emailjs.send(serviceId, templateId, templateParams)
     .then(function(response) {
-      console.log('SUCCESS!', response.status, response.text);
+        console.log('SUCCESS!', response.status, response.text);
     }, function(error) {
-      console.log('FAILED...', error);
+        console.log('FAILED...', error);
     });
-        confirmValidacionesTexto.innerHTML = "¡Gracias por contactarnos!, revise su correo electrónico.";
+        confirmValidacionesTexto.innerHTML = "¡Gracias por contactarnos! Revise su correo electrónico.";
         confirmValidaciones.style.display = "block";
     }// else
 });    // Alertas de validación
