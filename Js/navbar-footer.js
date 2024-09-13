@@ -22,63 +22,89 @@ let footerStyle = document.getElementsByTagName("head").item(0);
 
 
 
-let navBar=`<nav class="navbar navbar-expand-md bg-white ">
-        <div class="container-fluid navbar-container">
-        <a class="navbar-brand" href="#">
-            <!--GuarniApp-->
-            <img src="../assets/1.png" alt="GuarniApp Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+// let navBar=`<nav class="navbar navbar-expand-md bg-white ">
+//         <div class="container-fluid navbar-container">
+//         <a class="navbar-brand" href="#">
+//             <!--GuarniApp-->
+//             <img src="../assets/1.png" alt="GuarniApp Logo">
+//         </a>
+//         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+//             <span class="navbar-toggler-icon"></span>
+//         </button>
+//         <div class="collapse navbar-collapse" id="navbarNav">
+//             <ul class="navbar-nav">
 
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkHome}">${home}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkSobre}">${sobreNosotros}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="${linkContactanos}">${contactanos}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="${linkFeed}">${feed}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkBandeja}">${bandeja}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkIniciarSesion}">${iniciarSesion}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkPerfil}">${perfil}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkBusqueda}">${busqueda}</a>
-            </li>
+//             <li class="nav-item">
+//                 <a class="nav-link active" href="${linkHome}">${home}</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a class="nav-link active" href="${linkSobre}">${sobreNosotros}</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a class="nav-link active" aria-current="page" href="${linkContactanos}">${contactanos}</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a class="nav-link active" aria-current="page" href="${linkFeed}">${feed}</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a class="nav-link active" href="${linkBandeja}">${bandeja}</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a class="nav-link active" href="${linkIniciarSesion}">${iniciarSesion}</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a class="nav-link active" href="${linkPerfil}">${perfil}</a>
+//             </li>
+//             <li class="nav-item">
+//                 <a class="nav-link active" href="${linkBusqueda}">${busqueda}</a>
+//             </li>
             
-            </ul>
-        </div>
-        </div>
-        </nav>`;
+//             </ul>
+//         </div>
+//         </div>
+//         </nav>`;
 
 
-        let styleNav=`<link rel="stylesheet" href="../css/navbarStyle.css">`
+//         let styleNav=`<link rel="stylesheet" href="./css/navbarStyle.css">`
 
-        navbody.insertAdjacentHTML("afterbegin",navBar);
+//         navbody.insertAdjacentHTML("afterbegin",navBar);
 
-        css.insertAdjacentHTML("beforeend",styleNav)
+//         css.insertAdjacentHTML("beforeend",styleNav)
         
 
 window.addEventListener('load', function() {
     let footerHTML=`
+        <footer>
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-sm-4">
+            <h5 class="footer-title">Guarniapp</h4>
+            <ul id="ulc1">
+                <li><a href="./feed.html">Inicio</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <h5 class="footer-title">Compañia</h4>
+            <ul id="ulc2">
+                <li><a href="./feed.html">Conocenos</a></li>
+                <li><a href="./feed.html">Misión</a></li>
+                <li><a href="./feed.html">Visión</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <h5 class="footer-title">Soporte</h4>
+            <ul id="ulc3">
+                <li><a href="./feed.html">Conocenos</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </footer>
     `;
-    footerBody.insertAdjacentElement("afterbegin", footerHTML);
+    footerBody.insertAdjacentHTML("afterbegin", footerHTML);
 
-    let footercss = `<link rel="shylesheet" href="../css/footerStyle.css">`;
-    footerStyle.insertAdjacentElement("beforeend", footercss);
+    let footercss = `<link rel="stylesheet" href="../css/footerStyle.css">`;
+    footerStyle.insertAdjacentHTML("beforeend", footercss);
 });
 
 
