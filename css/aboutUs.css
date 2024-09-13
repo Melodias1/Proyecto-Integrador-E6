@@ -1,44 +1,27 @@
-:root{
-    --bg-color: rgb(255, 255, 255);
-    --text-color: rgb(0, 22, 10);
-    --item-bg-color: rgb(255, 143, 15);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    width: 100vw;
-    height: 500vh;
-    margin: 0;
-}
-
-footer {
-    color: #ecf0f1;
-    padding: 20px 0;
-}
-
-.container{
-    background-color: var(--container-bg-color);
-    height: 300px;
-    text-align: center;
-}
-
 .navbar-container {
-    background-color: #FF900D;
+    background-color: #FF900D; 
 }
 
 .navbar-brand img {
     width: 120px;
 }
 
-h1{
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--text-color);
+footer{
+    border: solid, #FF900D, 2px;
+    background-color: #FF900D;
     text-align: center;
-    border-bottom: 10px solid #FF900D;
-    border-radius: 5px;
-    width: fit-content;
-    display: inline-block;
 }
+
+#ulc1, #ulc2, #ulc3{
+    list-style: none;
+    margin-right: 5%;
+}
+
+a{
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
 
 #parrafo{
     font-family: "Poppins", sans-serif;
@@ -111,50 +94,8 @@ h2 {
     text-decoration: underline white 3px ; 
 }
 
-/*footer*/
-
-footer{
-
-    border: solid, #FF900D, 2px;
-    background-color: #FF900D;
-    }
-
-h5{
-    color: #ecf0f1;
-}
-    
-ul{
-    
-    margin-right: 30px;
-    margin-top: 15px;
-}
-
-a{
-    color: #ecf0f1;
-    text-decoration: none;
-}
-        
-.titulos-footer{
-    display: flex;
-    text-align: center; 
- }
-
-
-
-
-#Inicio{
-        margin-left: 50%;
-        color: #ecf0f1;
-        
-}
-
-.sub_compañia{
-    margin-left: 63%;
-    color: #ecf0f1;
-    text-decoration: none;
-    margin-top: 50;
-}
-
-#ulc, #ulc2{
-    list-style: none;
+.comida{
+    background-color: var(--container-bg-color);
+    height: 300px;
+    text-align: center;
 }

@@ -1,0 +1,101 @@
+.navbar-container {
+    background-color: #FF900D; 
+}
+
+.navbar-brand img {
+    width: 120px;
+}
+
+footer{
+    border: solid, #FF900D, 2px;
+    background-color: #FF900D;
+    text-align: center;
+}
+
+#ulc1, #ulc2, #ulc3{
+    list-style: none;
+    margin-right: 5%;
+}
+
+a{
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+
+#parrafo{
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 18px;
+    background-color: var(--bg-color);
+    text-align: justify;
+    max-width: 600px; 
+}
+
+img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+h2 {
+    font-family: "Poppins", sans-serif;
+    color: var(--text-color);
+    text-align: center;
+    border-bottom: 10px solid #FF900D;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.card-body{
+    background-color: #FF900D;
+    color: #ecf0f1;
+}
+
+.card:hover {
+    scale: .95;
+    box-shadow:0 0 20px #DEC54E;
+}
+
+.div-img-card{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+
+.card-img-top{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.btn-custom {
+    background-color: #FF900D;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: #DEC54E;
+    font-weight: bold;
+    color: black;
+}
+
+.nav-link:hover {
+    
+    
+    text-decoration: underline white 3px ; 
+}
+
+.comida{
+    background-color: var(--container-bg-color);
+    height: 300px;
+    text-align: center;
+}
