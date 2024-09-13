@@ -1,20 +1,3 @@
-:root{
-    --bg-color: rgb(255, 255, 255);
-    --text-color: rgb(0, 22, 10);
-    --item-bg-color: rgb(255, 143, 15);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    width: 100vw;
-    height: 500vh;
-    margin: 0;
-}
-
-.container{
-    background-color: var(--container-bg-color);
-    height: 300px;
-    text-align: center;
-}
-
 .navbar-container {
     background-color: #FF900D;
 }
@@ -25,60 +8,4 @@
 
 .nav-link:hover { 
     text-decoration: underline white 3px ; 
-}
-
-#title{
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--text-color);
-    text-align: center;
-    border-bottom: 10px solid #FF900D;
-    border-radius: 5px;
-    width: fit-content;
-    display: inline-block;
-}
-
-.subtitle{
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-    font-size: 18px;
-    background-color: var(--bg-color);
-    text-align: justify;
-    max-width: 600px; 
-    margin-bottom: 20px;
-}
-.error-messagetext-danger {
-    color: red;
-    font-size: 0.875em;
-    display: block;
-    margin-top: 0.5em;
-}
-
-.form-floating {
-    position: relative;
-    margin-bottom: 1.5rem;
-}
-#enviar{
-    background-color: #FF900D;
-    width: 100px;
-    height: 35px;
-    border-radius: 10px;
-}
-
-.custom-input {
-    background-color: #FFF5E1;
-}
-
-.custom-input:hover{
-    background-color: #f8ebd2;
-    font-weight: bold;
-    color: white;
-}
-
-.btn-custom:hover {
-    background-color: #DEC54E;
-    font-weight: bold;
-    color: black;
 }

@@ -1,4 +1,4 @@
-let navbody= document.getElementsByClassName("navbody").item(0)
+let navbody= document.getElementsByTagName("body").item(0)
 let css= document.getElementsByTagName("head").item(0)
 let home= "Inicio"
 let linkHome="../index.html"
