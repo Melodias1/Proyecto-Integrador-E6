@@ -17,6 +17,11 @@ let linkPerfil="../WebPages/feed.html"
 let busqueda= "Busqueda"
 let linkBusqueda="../WebPages/search.html"
 
+let footerBody = document.getElementsByClassName("footerBody").item(0);
+let footerStyle = document.getElementsByTagName("head").item(0);
+
+
+
 let navBar=`<nav class="navbar navbar-expand-md bg-white ">
         <div class="container-fluid navbar-container">
         <a class="navbar-brand" href="#">
@@ -67,7 +72,14 @@ let navBar=`<nav class="navbar navbar-expand-md bg-white ">
         css.insertAdjacentHTML("beforeend",styleNav)
         
 
+window.addEventListener('load', function() {
+    let footerHTML=`
+    `;
+    footerBody.insertAdjacentElement("afterbegin", footerHTML);
 
+    let footercss = `<link rel="shylesheet" href="../css/footerStyle.css">`;
+    footerStyle.insertAdjacentElement("beforeend", footercss);
+});
 
 
 //     headElements.insertAdjacentHTML("afterbeging",headElements)
