@@ -1,23 +1,6 @@
 let navbody= document.getElementsByTagName("body").item(0)
 let css= document.getElementsByTagName("head").item(0)
 let home= "Inicio"
-<<<<<<< HEAD
-let linkHome="../WebPages/Inicio"
-let sobreNosotros= "Sobre Nosotros"
-let linkSobre="../WebPages/aboutUs.html"
-let contactanos= "Contáctanos"
-let linkContactanos="../WebPages/contactUs.html"
-let bandeja= "Publicaciones"
-let linkBandeja="../WebPages/publicaciones.html"
-let iniciarSesion= "Iniciar Sesión"
-let linkIniciarSesion="../WebPages/IniciarSesion.html"
-let perfil= "Mi Perfil"
-let linkPerfil="../WebPages/miperfil.html"
-let feed= "Registro Usuarios"
-let linkFeed="../WebPages/Registro Usuarios.html"
-let busqueda= "Búsqueda"
-let linkBusqueda="../WebPages/search.html"
-=======
 let linkHome="../index.html"
 let sobreNosotros= "Sobre Nosotros"
 let linkSobre="../WebPages/aboutUs.html"
@@ -38,7 +21,6 @@ let footerBody = document.getElementsByClassName("footerBody").item(0);
 let footerStyle = document.getElementsByTagName("head").item(0);
 
 
->>>>>>> 1b256275a5cdd115b0c703fce8f9953dc18f15b1
 
 let navBar=`<nav class="navbar navbar-expand-md bg-white ">
         <div class="container-fluid navbar-container">
@@ -83,11 +65,7 @@ let navBar=`<nav class="navbar navbar-expand-md bg-white ">
         </nav>`;
 
 
-<<<<<<< HEAD
-        let styleNav=`<link rel="stylesheet" href="../css/navbar.css">`
-=======
         let styleNav=`<link rel="stylesheet" href="../css/navbarStyle.css">`
->>>>>>> 1b256275a5cdd115b0c703fce8f9953dc18f15b1
 
         navbody.insertAdjacentHTML("afterbegin",navBar);
 
