@@ -17,12 +17,12 @@ let linkPerfil="../WebPages/feed.html"
 let busqueda= "Busqueda"
 let linkBusqueda="../WebPages/search.html"
 
-let footerBody = document.getElementsByClassName("footerBody").item(0);
-let footerStyle = document.getElementsByTagName("head").item(0);
+const footerBody = document.getElementsByClassName("footerBody").item(0);
+const footerStyle = document.getElementsByTagName("head").item(0);
 
 
 
-let navBar=`<nav class="navbar navbar-expand-md bg-white ">
+const navBar=`<nav class="navbar navbar-expand-md bg-white ">
         <div class="container-fluid navbar-container">
         <a class="navbar-brand" href="#">
             <!--GuarniApp-->
@@ -65,7 +65,7 @@ let navBar=`<nav class="navbar navbar-expand-md bg-white ">
         </nav>`;
 
 
-        let styleNav=`<link rel="stylesheet" href="../css/navbarStyle.css">`
+        const styleNav=`<link rel="stylesheet" href="../css/navbarStyle.css">`
 
         navbody.insertAdjacentHTML("afterbegin",navBar);
 
@@ -73,7 +73,7 @@ let navBar=`<nav class="navbar navbar-expand-md bg-white ">
         
 
 window.addEventListener('load', function() {
-    let footerHTML=`
+    const footerHTML=`
         <footer>
     <div class="container-fluid">
         <div class="row">
