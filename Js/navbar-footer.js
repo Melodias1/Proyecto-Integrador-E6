@@ -76,14 +76,14 @@ window.addEventListener('load', function() {
     let footerHTML=`
         <footer>
     <div class="container-fluid">
-        <div class="row">
-        <div class="col-sm-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="col">
             <h5 class="footer-title">Guarniapp</h4>
             <ul id="ulc1">
                 <li><a href="./feed.html">Inicio</a></li>
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col">
             <h5 class="footer-title">Compañia</h4>
             <ul id="ulc2">
                 <li><a href="./feed.html">Conocenos</a></li>
@@ -91,7 +91,7 @@ window.addEventListener('load', function() {
                 <li><a href="./feed.html">Visión</a></li>
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col">
             <h5 class="footer-title">Soporte</h4>
             <ul id="ulc3">
                 <li><a href="./feed.html">Conocenos</a></li>
