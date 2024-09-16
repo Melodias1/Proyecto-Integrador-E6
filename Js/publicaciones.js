@@ -20,7 +20,7 @@ function addItem(item){
     item.forEach(p => {
          const itemHTML = `<div class="col-sm-12">
                 <br>
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="max-width: 35rem;">
         <img src="${p.strMealThumb}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${p.strMeal}</h5>
