@@ -1,25 +1,13 @@
-.navbar-container {
-    background-color: #FF900D; 
-}
+/* Body */
 
-.navbar-brand img {
-    width: 120px;
-}
-
-footer{
-    border: solid, #FF900D, 2px;
-    background-color: #FF900D;
-    text-align: center;
-}
-
-#ulc1, #ulc2, #ulc3{
-    list-style: none;
-    margin-right: 5%;
-}
-
-a{
-    color: #ecf0f1;
-    text-decoration: none;
+:root{
+    --bg-color: rgb(255, 255, 255);
+    --text-color: rgb(0, 22, 10);
+    --item-bg-color: rgb(255, 143, 15);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: auto;
+    height: auto;
 }
 
 
@@ -88,14 +76,9 @@ h2 {
     color: black;
 }
 
-.nav-link:hover {
-    
-    
-    text-decoration: underline white 3px ; 
-}
-
 .comida{
     background-color: var(--container-bg-color);
     height: 300px;
     text-align: center;
 }
+/* Aqui cierra el body */

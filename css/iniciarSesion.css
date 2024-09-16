@@ -1,3 +1,15 @@
+/* Body */
+
+:root{
+    --bg-color: rgb(255, 255, 255);
+    --text-color: rgb(0, 22, 10);
+    --item-bg-color: rgb(255, 143, 15);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: auto;
+    height: auto;
+}
+
 h1{
     font-style: italic;
     font-weight: bolder ;
@@ -9,9 +21,6 @@ body{
     text-align: center;
 }
 
-img{
-   
-}
 
 button{
     width: 150px;
