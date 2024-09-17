@@ -10,9 +10,13 @@
     height: auto;
 }
 
-/* .alert{
-    display: none;
-} */
+.error-messagetext-danger {
+    color: red;
+    font-size: 0.875rem; 
+    margin-top: 0.25rem;
+    display: block;
+}
+
 
 img {
     width: 100%;

@@ -18,23 +18,23 @@
         <div class="row">
             <h3>Nueva Publicación</h3>
             
-            <!-- Formulario para cargar imagen -->
+            
             <form id="imageUploadForm" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="imageFile" class="form-label">Cargar Imagen</label>
                     <input class="form-control" type="file" id="imageFile" accept="image/*">
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Subir Imagen</button>
-            </form>
+            </form><!-- cargar imagen -->
     
-            <!-- Formulario para cargar video -->
+            
             <form id="videoUploadForm" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="videoFile" class="form-label">Cargar Video</label>
                     <input class="form-control" type="file" id="videoFile" accept="video/*">
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Subir Video</button>
-            </form>
+            </form><!--cargar video -->
             
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí...</label>
@@ -44,6 +44,9 @@
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-3">Publicar</button>
             </div>
+
+            <h4>Listado de Publicaciones</h4>
+            <div id="postsContainer" class="mt-4"></div>
         </div>
     </div>
     <script src="../Js/publicaciones.js"></script>
