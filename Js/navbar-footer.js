@@ -8,21 +8,21 @@ let contactanos= "Contactanos"
 let linkContactanos="../WebPages/contactUs.html"
 let feed= "Feed"
 let linkFeed="../WebPages/feed.html"
-let bandeja= "Bandejad de Entrada"
+let bandeja= "Bandeja de Entrada"
 let linkBandeja="../WebPages/inbox.html"
 let iniciarSesion= "Iniciar Sesion"
 let linkIniciarSesion="../WebPages/IniciarSesion.html"
 let perfil= "Mi Perfil"
-let linkPerfil="../WebPages/feed.html"
+let linkPerfil="../WebPages/perfil.html"
 let busqueda= "Busqueda"
 let linkBusqueda="../WebPages/search.html"
 
-let footerBody = document.getElementsByClassName("footerBody").item(0);
-let footerStyle = document.getElementsByTagName("head").item(0);
+const footerBody = document.getElementsByClassName("footerBody").item(0);
+const footerStyle = document.getElementsByTagName("head").item(0);
 
 
 
-let navBar=`<nav class="navbar navbar-expand-md bg-white ">
+const navBar=`<nav class="navbar navbar-expand-md bg-white ">
         <div class="container-fluid navbar-container">
         <a class="navbar-brand" href="#">
             <!--GuarniApp-->
@@ -65,7 +65,7 @@ let navBar=`<nav class="navbar navbar-expand-md bg-white ">
         </nav>`;
 
 
-        let styleNav=`<link rel="stylesheet" href="../css/navbarStyle.css">`
+        const styleNav=`<link rel="stylesheet" href="../css/navbarStyle.css">`
 
         navbody.insertAdjacentHTML("afterbegin",navBar);
 
@@ -73,7 +73,7 @@ let navBar=`<nav class="navbar navbar-expand-md bg-white ">
         
 
 window.addEventListener('load', function() {
-    let footerHTML=`
+    const footerHTML=`
         <footer>
     <div class="container-fluid">
         <div class="row">
@@ -86,9 +86,9 @@ window.addEventListener('load', function() {
         <div class="col-sm-4">
             <h5 class="footer-title">Compañia</h4>
             <ul id="ulc2">
-                <li><a href="./feed.html">Conocenos</a></li>
-                <li><a href="./feed.html">Misión</a></li>
-                <li><a href="./feed.html">Visión</a></li>
+                <li><a href="./contactUs.html">Conocenos</a></li>
+                <li><a href="./Mision.html">Misión</a></li>
+                <li><a href="./Vision.html">Visión</a></li>
             </ul>
         </div>
         <div class="col-sm-4">
@@ -102,7 +102,6 @@ window.addEventListener('load', function() {
     </footer>
     `;
     footerBody.insertAdjacentHTML("afterbegin", footerHTML);
-
     let footercss = `<link rel="stylesheet" href="../css/footerStyle.css">`;
     footerStyle.insertAdjacentHTML("beforeend", footercss);
 });
