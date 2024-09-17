@@ -30,6 +30,7 @@ const templateId ="template_hvvj76z";
 const apikey = "SrhL_hudVaO97-FRV";
 
 
+
 var templateParams = {
     to_name: txtNombre.value,
     from_name: 'GuarniAPP',
@@ -58,6 +59,7 @@ btnEnviar.addEventListener("click", function(event) {
     
     if (txtNombre.value.length < 3) {
         nombreError.textContent = "El nombre no es válido. Debe tener al menos 3 caracteres.";
+       
         isValid = false;
     }// Validar nombre
 
@@ -90,8 +92,12 @@ btnEnviar.addEventListener("click", function(event) {
     }, function(error) {
         console.log('FAILED...', error);
     });
-        confirmValidacionesTexto.innerHTML = "¡Gracias por contactarnos! Revise su correo electrónico.";
-        confirmValidaciones.style.display = "block";
+        
+        Swal.fire({
+            title: "Enviado",
+            text: "Su registro fue exitoso!",
+            icon: "success"
+          });
     }// else
 });    // Alertas de validación
 
