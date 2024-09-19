@@ -1,8 +1,4 @@
 const btnEnviar = document.getElementById("btnEnviar");
-const alertValidaciones = document.getElementById("alertValidaciones");
-const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
-const confirmValidaciones = document.getElementById("confirmValidaciones");
-const confirmValidacionesTexto = document.getElementById("confirmValidacionesTexto");
 const txtNombre = document.getElementById("Nombre");
 const txtEmail = document.getElementById("Email");
 const txtTelefono = document.getElementById("Telefono");
@@ -30,17 +26,6 @@ const templateId ="template_hvvj76z";
 const apikey = "SrhL_hudVaO97-FRV";
 
 
-
-var templateParams = {
-    to_name: txtNombre.value,
-    from_name: 'GuarniAPP',
-    message_html: 'Recibimos tu mensaje, en breve nos comunicaremos.'
-    };
-
-
-
-
-
 btnEnviar.addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -49,10 +34,6 @@ btnEnviar.addEventListener("click", function(event) {
     correoError.textContent = "";
     telefonoError.textContent = "";
     comentariosError.textContent = "";
-    alertValidacionesTexto.innerHTML = "";
-    alertValidaciones.style.display = "none";
-    confirmValidacionesTexto.innerHTML = "";
-    confirmValidaciones.style.display = "none";
 
     let isValid = true;
 
@@ -83,22 +64,41 @@ btnEnviar.addEventListener("click", function(event) {
 
 
     if (!isValid) {
-        alertValidacionesTexto.innerHTML = "Por favor, corrija los errores en el formulario.";
-        alertValidaciones.style.display = "block";
+        swal({
+            title: "¡Falta información!",
+            text: "¡Oh!, parece que no has llenado bien los campos",
+            icon: "warning",
+            button: "Ver info faltante",
+        });
     } else {
-        emailjs.send(serviceId, templateId, templateParams)
-    .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-        console.log('FAILED...', error);
-    });
-        
-        Swal.fire({
-            title: "Enviado",
-            text: "Su registro fue exitoso!",
-            icon: "success"
-          });
-    }// else
+//var templateParams = {
+//    to_name: txtNombre.value,
+//    from_name: 'GuarniAPP',
+//    message_html: 'Recibimos tu mensaje, en breve nos comunicaremos.'
+//    };
+        emailjs.send(serviceId, templateId, {
+            to_name: txtNombre.value,
+            from_name: 'GuarniAPP',
+            message_html: `Recibimos tu mensaje desde ${txtEmail.value}, con tus comentarios: ${txtComentarios.value}. En breve nos comunicaremos.`, 
+        })
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            swal({
+                title: "¡Excelente!",
+                text: "¡Has completado el formulario!",
+                icon: "success",
+                button: "Gracias por tu mensaje",
+            });
+        }, function(error) {
+            console.log('FAILED...', error);
+            swal({
+                title: "¡Error!",
+                text: "Hubo un problema al enviar tu mensaje. Inténtalo nuevamente.",
+                icon: "error",
+                button: "Aceptar",
+            });
+        });
+    }
 });    // Alertas de validación
 
 

@@ -1,6 +1,6 @@
 
 // //llamando al elemento del dom
- const itemsContainer = document.getElementById("list-items");
+// const itemsContainer = document.getElementById("list-items");
 // // fetch a la api de themealdb, las recetas estan en el elemento "meal, por lo que se llama a data.meals"
 // function getData(){
 //     const promesa = fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=b", {method:"GET"});
@@ -40,9 +40,11 @@
 // }
 // //llamda a la funcion que hace el fetch a la api
 // getData();
-// se agrega codigo js segun lo solicitado en el ejercicio
+
+// usando las reglas de negocio propuestas en el documento de tareas
+
 function addItem(item){
-    const itemHTML = '<div class="card" style="width: 18rem;">\n' +
+    const itemHTML = '<div class="card mb-5" style="width: 18rem; ">\n' +
         '    <img src="'+item.img +'" class="card-img-top" alt="image">\n' +
         '    <div class="card-body">\n' +
         '        <h5 class="card-title">'+item.name+'</h5>\n' +
