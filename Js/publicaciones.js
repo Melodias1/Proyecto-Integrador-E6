@@ -44,17 +44,17 @@
 // usando las reglas de negocio propuestas en el documento de tareas
 
 function addItem(item){
-    const itemHTML = '<div class="card mb-5" style="width: 18rem; ">\n' +
+    const itemHTML = '<div class="col-sm-12"><div class="card mb-5 col-sm-" style="max-width: 28em; ">\n' +
         '    <img src="'+item.img +'" class="card-img-top" alt="image">\n' +
-        '    <div class="card-body">\n' +
+        '    <div class="card-body ">\n' +
         '        <h5 class="card-title">'+item.name+'</h5>\n' +
         '        <p class="card-text">'+item.description+'</p>\n' +
         '        <a href="#" class="btn btn-primary">Add</a>\n' +
         '    </div>\n' +
         '</div>\n' +
-        '<br/>';
+        '<br/> </div>';
     const itemsContainer = document.getElementById("list-items");
-    itemsContainer.innerHTML += itemHTML;
+    itemsContainer.insertAdjacentHTML ("beforeend",itemHTML);
 }
 
 addItem({'name':'juice',
