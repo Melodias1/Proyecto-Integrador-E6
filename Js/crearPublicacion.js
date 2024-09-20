@@ -1,0 +1,1 @@
+const linkImg = document.getElementById("img-file")
