@@ -109,7 +109,4 @@ window.addEventListener('load', function() {
 
 //     headElements.insertAdjacentHTML("afterbeging",headElements)
 
-        
-
-    
 
