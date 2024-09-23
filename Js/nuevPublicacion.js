@@ -1,97 +1,56 @@
-//==================== validaciones de formulario================
-const form = document.getElementById("publicationForm");
-const imageFile = document.getElementById("imageFile");
-const videoFile = document.getElementById("videoFile");
-const textArea = document.getElementById("exampleFormControlTextarea1");
-const btnSubmit= document.getElementById("btnPublicar");
-
-document.addEventListener("DOMContentLoaded", function(){
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        let isValid = true;
-
-        // Ocultar mensajes de error si ya existen
-
-        clearErrorMessages();
-
-        // Validar la imagen
-        if (!validateImage()) {
-            showError(imageFile, "Debe cargar una imagen válida.");
-            isValid = false;
-        }
-
-        // Validar el video (opcional)
-        if (!validateVideo()) {
-            showError(videoFile, "Debe cargar un video válido.");
-            isValid = false;
-        }
-
-        // Validar el campo de texto
-        if (textArea.value.trim().length === 0) {
-            showError(textArea, "Debe escribir algo en la publicación.");
-            isValid = false;
-        }
-
-        // Si el formulario no es válido
-        if (!isValid) {
-            swal({
-                title: "¡Falta información!",
-                text: "Por favor, revise los campos antes de enviar.",
-                icon: "warning",
-                button: "Revisar campos",
-            });
-            return;
-        }
-
-        // Si es válido
-        swal({
-            title: "¡Publicación exitosa!",
-            text: "Su publicación ha sido realizada con éxito.",
-            icon: "success",
-            button: "OK",
-        });
+function loadPublications() {
+    const publications = JSON.parse(localStorage.getItem('publications')) || [];
+    publications.forEach(publication => {
+        displayPublication(publication);
     });
+} // Cargar publicaciones del local storage al inicio
 
-    // Función para validar la imagen
-    function validateImage() {
-        const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-        return imageFile.files.length > 0 && allowedExtensions.test(imageFile.value);
-    }
+// Mostrar publicación en el contenedor
+function displayPublication(publication) {
+    const publicationDiv = document.createElement('div');
+    publicationDiv.classList.add('col-md-4');
+    publicationDiv.innerHTML = `
+    <div class="card mb-5" style="width: 18rem;">
+        ${publication.image ? `<img src="${publication.image}" class="card-img-top" alt="image">` : ''}
+       ${publication.video ? `<video class="card-img-top mb-2" controls><source src="${publication.video}" type="video/mp4">Tu navegador no soporta el video.</video>` : ''}
+        <div class="card-body">
+            <h5 class="card-title">Título de la Publicación</h5>
+            <p class="card-text">${publication.text}</p>           
+           <div class="comments-section" id="comments-${publication.date}">
+                <h6>Comentarios:</h6>
+                <div class="comments-list"></div>
+                <textarea class="form-control" placeholder="Escribe un comentario..." rows="2"></textarea>
+                <button class="btn btn-primary mt-2" onclick="addComment('${publication.date}')">Comentar</button>
+            </div>
+        </div>
+    </div>
+    `;
+    document.getElementById('list-items').appendChild(publicationDiv);
+}
 
-    // Función para validar el video (opcional)
-    function validateVideo() {
-        const allowedExtensions = /(\.mp4|\.mov|\.avi|\.wmv)$/i;
-        return videoFile.files.length > 0 && allowedExtensions.test(videoFile.value);
-    }
 
-    // Mostrar mensaje de error
-    function showError(inputElement, message) {
-        const errorElement = document.createElement("div");
-        errorElement.className = "text-danger";
-        errorElement.textContent = message;
-        inputElement.parentElement.appendChild(errorElement);
-    }
+document.getElementById('publicationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
 
-    // Limpiar los mensajes de error
-    function clearErrorMessages() {
-        const errors = document.querySelectorAll(".text-danger");
-        errors.forEach(function(error) {
-            error.remove();
-        });
-    }
+    const imageFile = document.getElementById('imageFile').files[0];
+    const videoFile = document.getElementById('videoFile').files[0];
+    const textContent = document.getElementById('exampleFormControlTextarea1').value;
+
+    const publication = {
+        text: textContent,
+        image: imageFile ? URL.createObjectURL(imageFile) : null,
+        video: videoFile ? URL.createObjectURL(videoFile) : null,
+        date: new Date().toISOString() // La fecha ordena la publicacion
+    };
+
+    // Guardar publicación en el local storage
+    const publications = JSON.parse(localStorage.getItem('publications')) || [];
+    publications.unshift(publication); // Añadir al inicio
+    localStorage.setItem('publications', JSON.stringify(publications));
+
+    // Mostrar la nueva publicación
+    displayPublication(publication);
+
+    // Reiniciar el formulario
+    document.getElementById('publicationForm').reset();
 });
-
-var myWidget = cloudinary.createUploadWidget({
-    cloudName: 'my_cloud_name', 
-    uploadPreset: 'my_preset'}, (error, result) => { 
-      if (!error && result && result.event === "success") { 
-        console.log('Done! Here is the image info: ', result.info); 
-      }
-    }
-  )
-  
-  document.getElementById("upload_widget").addEventListener("click", function(){
-      myWidget.open();
-    }, false);
-  
