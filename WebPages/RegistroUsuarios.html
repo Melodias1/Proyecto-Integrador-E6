@@ -15,6 +15,48 @@
 </head>
 <body class="navbody">
 
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 id="registerTitle">Registro de Usuario</h2>
+        <form class="needs-validation col-md-6" id="registrationForm" novalidate>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="fullName" placeholder="Nombre completo" required>
+                <label for="fullName">Nombre completo</label>
+                <span id="fullNameError" class="error-messagetext-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="phone" placeholder="Número de teléfono" required>
+                <label for="phone">Número de teléfono</label>
+                <span id="phoneError" class="error-messagetext-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" required>
+                <label for="regEmail">Email (nombre de usuario)</label>
+                <span id="regEmailError" class="error-messagetext-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                <label for="password">Contraseña</label>
+                <span id="passwordError" class="error-messagetext-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+                <label for="confirmPassword">Confirmar Contraseña</label>
+                <span id="confirmPasswordError" class="error-messagetext-danger"></span>
+            </div>
+
+            <div class="text-center p-3 mt-5">
+                <button class="btn btn-lg text-white btn-custom navbar-container boton-hover" id="btnRegister">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
     <script src="../Js/navbar-footer.js"></script>
     <!--!NO BORRAR Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

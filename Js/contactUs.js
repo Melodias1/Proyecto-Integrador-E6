@@ -87,6 +87,15 @@ btnEnviar.addEventListener("click", function(event) {
                 text: "¡Has completado el formulario!",
                 icon: "success",
                 button: "Gracias por tu mensaje",
+            }).then(() => {
+                txtNombre.value = "";
+                txtEmail.value = "";
+                txtTelefono.value = "";
+                txtComentarios.value = "";
+                nombreError.textContent = "";
+                correoError.textContent = "";
+                telefonoError.textContent = "";
+                comentariosError.textContent = "";
             });
         }, function(error) {
             console.log('FAILED...', error);
