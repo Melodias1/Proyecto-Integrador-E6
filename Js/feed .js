@@ -1,6 +1,6 @@
 // Cargar publicaciones del local storage al inicio
 function loadPublications() {
-    const publications = JSON.parse(localStorage.getItem('publications')) || [];
+    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
     publications.forEach(publication => {
         displayPublication(publication);
     });

@@ -41,102 +41,20 @@
 // //llamda a la funcion que hace el fetch a la api
 // getData();
 
-// usando las reglas de negocio propuestas en el documento de tareas
 
-const form = document.getElementById("publicationForm");
-const imageFile = document.getElementById("imageFile");
-const videoFile = document.getElementById("videoFile");
-const textArea = document.getElementById("exampleFormControlTextarea1");
-
-document.addEventListener("DOMContentLoaded", function(){
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        let isValid = true;
-
-        // Ocultar mensajes de error si ya existen
-        clearErrorMessages();
-
-        // Validar la imagen
-        if (!validateImage()) {
-            showError(imageFile, "Debe cargar una imagen válida.");
-            isValid = false;
-        }
-
-        // Validar el video (opcional)
-        if (!validateVideo()) {
-            showError(videoFile, "Debe cargar un video válido.");
-            isValid = false;
-        }
-
-        // Validar el campo de texto
-        if (textArea.value.trim().length === 0) {
-            showError(textArea, "Debe escribir algo en la publicación.");
-            isValid = false;
-        }
-
-        // Si el formulario no es válido
-        if (!isValid) {
-            swal({
-                title: "¡Falta información!",
-                text: "Por favor, revise los campos antes de enviar.",
-                icon: "warning",
-                button: "Revisar campos",
-            });
-            return;
-        }
-
-        // Si es válido
-        swal({
-            title: "¡Publicación exitosa!",
-            text: "Su publicación ha sido realizada con éxito.",
-            icon: "success",
-            button: "OK",
-        });
-    });
-
-    // Función para validar la imagen
-    function validateImage() {
-        const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-        return imageFile.files.length > 0 && allowedExtensions.test(imageFile.value);
-    }
-
-    // Función para validar el video (opcional)
-    function validateVideo() {
-        const allowedExtensions = /(\.mp4|\.mov|\.avi|\.wmv)$/i;
-        return videoFile.files.length > 0 && allowedExtensions.test(videoFile.value);
-    }
-
-    // Mostrar mensaje de error
-    function showError(inputElement, message) {
-        const errorElement = document.createElement("div");
-        errorElement.className = "text-danger";
-        errorElement.textContent = message;
-        inputElement.parentElement.appendChild(errorElement);
-    }
-
-    // Limpiar los mensajes de error
-    function clearErrorMessages() {
-        const errors = document.querySelectorAll(".text-danger");
-        errors.forEach(function(error) {
-            error.remove();
-        });
-    }
-});
-
-
+// ===== cargar publicaciones usando las reglas de negocio propuestas en el documento de tareas======
 function addItem(item){
-    const itemHTML = '<div class="card mb-5" style="width: 18rem; ">\n' +
+    const itemHTML = '<div class="col-sm-12"><div class="card mb-5 col-sm-" style="max-width: 28em; ">\n' +
         '    <img src="'+item.img +'" class="card-img-top" alt="image">\n' +
-        '    <div class="card-body">\n' +
+        '    <div class="card-body ">\n' +
         '        <h5 class="card-title">'+item.name+'</h5>\n' +
         '        <p class="card-text">'+item.description+'</p>\n' +
         '        <a href="#" class="btn btn-primary">Add</a>\n' +
         '    </div>\n' +
         '</div>\n' +
-        '<br/>';
+        '<br/> </div>';
     const itemsContainer = document.getElementById("list-items");
-    itemsContainer.innerHTML += itemHTML;
+    itemsContainer.insertAdjacentHTML ("afterbegin",itemHTML);
 }
 
 addItem({'name':'juice',
@@ -176,15 +94,100 @@ addItem({'name':'Duck Confit',
     'img':'https://www.themealdb.com/images/media/meals/wvpvsu1511786158.jpg',
     'description':'french duck recipe'})
 
-var myWidget = cloudinary.createUploadWidget({
-  cloudName: 'my_cloud_name', 
-  uploadPreset: 'my_preset'}, (error, result) => { 
-    if (!error && result && result.event === "success") { 
-      console.log('Done! Here is the image info: ', result.info); 
-    }
-  }
-)
+//==============================cargar nuevas publicaciones=============================================
+    // Cargar publicaciones del local storage al inicio
+//  function loadPublications() {
+//     const publications = JSON.parse(localStorage.getItem('publicationsData')) || [];
+//     publications.forEach(publication => {
+//         displayPublication(publication);
+//     });
+// }
 
-document.getElementById("upload_widget").addEventListener("click", function(){
-    myWidget.open();
-  }, false);
+// // Mostrar publicación en el contenedor
+// function displayPublication(publication) {
+//     const publicationDiv = document.createElement('div');
+//     publicationDiv.classList.add('col-md-4');
+// //    publicationDiv.innerHTML = `
+// //    <div class="card mb-5" style="width: 18rem;">
+// //        ${publication.image ? `<img src="${publicationData.image}" class="card-img-top" alt="image">` : ''}
+//  //       <div class="card-body">
+//  //           <h5 class="card-title">Título de la Publicación</h5>
+// //            <p class="card-text">${publicationData.text}</p>
+//  //           ${publication.video ? `<video class="card-img-top mb-2" controls><source src="${publication.video}" type="video/mp4">Tu navegador no soporta el video.</video>` : ''}
+//  //           <a href="#" class="btn btn-primary">Me gusta <span class="like-count">0</span></a>
+//  //       </div>
+// //    </div>
+// //`;
+
+
+//     const textElement = document.createElement('p');
+//     textElement.textContent = publicationData.text;
+//     publicationDiv.appendChild(textElement);
+
+//     if (publicationData.image) {
+//         const imgElement = document.createElement('img');
+//         imgElement.src = publication.image;
+//         imgElement.alt = "Publicación de imagen";
+//         imgElement.classList.add('img-fluid', 'mb-2');
+//         publicationDiv.appendChild(imgElement);
+//     }
+
+//     if (publication.video) {
+//         const videoElement = document.createElement('video');
+//         videoElement.src = publication.video;
+//         videoElement.controls = true;
+//         videoElement.classList.add('mb-2');
+//         publicationDiv.appendChild(videoElement);
+//     }
+
+//     document.getElementById('list-items').appendChild(publicationDiv);
+// }
+
+// document.getElementById('publicationForm').addEventListener('submit', function(event) {
+//     event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+//     const imageFile = document.getElementById('imageFile').files[0];
+//     const videoFile = document.getElementById('videoFile').files[0];
+//     const textContent = document.getElementById('exampleFormControlTextarea1').value;
+
+//     const publication = {
+//         text: textContent,
+//         image: imageFile ? URL.createObjectURL(imageFile) : null,
+//         video: videoFile ? URL.createObjectURL(videoFile) : null,
+//         date: new Date().toISOString() // La fecha ordena la publicacion
+//     };
+
+//     // Guardar publicación en el local storage
+//     const publications = JSON.parse(localStorage.getItem('publications')) || [];
+//     publications.unshift(publication); // Añadir al inicio
+//     localStorage.setItem('publications', JSON.stringify(publications));
+
+//     // Mostrar la nueva publicación
+//     displayPublication(publication);
+
+//     // Reiniciar el formulario
+//     document.getElementById('publicationForm').reset();
+// });
+
+// // Cargar las publicaciones al cargar la página
+// loadPublications();
+
+
+function loadPublications() {
+    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    console.log(publications)
+    if (Array.isArray(publications)) {
+        publications.forEach(publication => {
+            addItem(publication);
+        });
+    }else{
+        addItem(publications);
+    }
+    }
+   
+
+loadPublications();
+
+
+
+
