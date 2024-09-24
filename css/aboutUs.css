@@ -80,12 +80,14 @@ h2 {
 .btn-custom {
     background-color: #FF900D;
     font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
 }
 
 .btn-custom:hover {
-    background-color: #DEC54E;
-    font-weight: bold;
-    color: black;
+    background-color: #FF900D;
+    transform: scale(1.1);
+    border: 2px solid black;
+    opacity: 0.8;
 }
 
 .nav-link:hover {
