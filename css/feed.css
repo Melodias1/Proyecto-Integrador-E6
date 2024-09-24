@@ -37,6 +37,27 @@ h1 {
 
 
 }
+.btn-add {
+    width: 100px; 
+    height: 100px; 
+    font-size: 30px;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF900D;
+    color: white;
+    border: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+.btn-add:hover {
+    transform: scale(1.1);
+    border: 2px solid #DEC54E;
+}
 /* 
 .h3{
     text-align: center;
