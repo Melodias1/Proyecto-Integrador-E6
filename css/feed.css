@@ -52,11 +52,13 @@ h1 {
     bottom: 20px; 
     right: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
+    transition: background-color 0.2s, transform 0.2s, opacity 0.3s;
 }
 .btn-add:hover {
+    background-color: #FF900D;
     transform: scale(1.1);
-    border: 2px solid #DEC54E;
+    border: 2px solid black;
+    opacity: 0.8;
 }
 /* 
 .h3{

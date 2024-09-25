@@ -13,7 +13,32 @@
     <!--Acerca CSS Style-->
 <link rel="stylesheet" href ="../css/navbar.css">
 </head>
-<body class="navbody">
+<div class="navbody">
+    <div>Inicio de sesion</div>
+        <div class="m-0 vh-100 row justify-content-center align-item-center">
+            <div class="col-xxl-8 col-lg-8 col-md-8 col-sm-12 pt-5 mt-5">
+                <form class="mb-5">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre de usuario o correo electronico"> 
+                    </div>
+                    <div class="mb-4">
+                      <label for="exampleInputPassword1" class="form-label">Contrasena</label>
+                      <input type="password" class="form-control" placeholder="Contrasena" id="exampleInputPassword1">
+                      <a href="#" id="emailHelp" class="form-text text-muted text-decoration-none" >Has olvidado tu contrasena?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
+                </form>
+                <p class="font-weight-bold text-center text -muted">O inicia sesion con</p>
+                <div class="d-flex justify-content-around">
+                    <button type="submit" class="btn btn-outline-dark flex-grow-1 mr-2">Facebook</button>
+                    <button type="submit" class="btn btn-outline-dark flex-grow-1 ml-2">Google</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
 
     <script src="../Js/navbar-footer.js"></script>
     <!--!NO BORRAR Bootstrap-->

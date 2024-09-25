@@ -14,7 +14,8 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
     const publicationData = {
         img: imageUrl,
         description: userText.value,
-        name: tituloText.value
+        name: tituloText.value,
+        comments: []
     };
 
     // guardar json en local storage
