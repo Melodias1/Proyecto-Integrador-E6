@@ -96,3 +96,4 @@ document.addEventListener('DOMContentLoaded', () => {
         errorSpan.classList.remove('text-danger');
     }
 });
+

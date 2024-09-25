@@ -64,3 +64,6 @@ function validatePassword(password) {
     const regexPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     return regexPass.test(password);
 }
+
+
+ 

@@ -1,11 +1,12 @@
  // obtener texto del text area y titulo
 const userText = document.getElementById('exampleFormControlTextarea1');
 const tituloText = document.getElementById('tituloText');
-// obtener url de imagen almacenado al subirla con el widget
+
 
 
 document.getElementById("btnPublicar").addEventListener("click", function(event){
     event.preventDefault();
+    // obtener url de imagen almacenado al subirla con el widget
     const imageUrl = localStorage.getItem('uploadedImageUrl');
   
     
