@@ -97,13 +97,22 @@
     }
 });*/
 
+//
+let fullName = document.getElementById("fullName");
+let emailJS= document.getElementById("regEmail");
+let phoneJS= document.getElementById("phone");
+let passwordJS= document.getElementById("email")
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.getElementById('registrationForm');
     const loginForm = document.getElementById('loginForm');
+    
 
     registrationForm.addEventListener('submit', (event) => {
         event.preventDefault(); // Evitar la recarga inmediata de la página
 
+        
         if (!validateRegistrationForm()) {
             swal({
                 title: "¡Falta información!",
@@ -112,12 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 button: "Revisar campos",
             });
         } else {
+                
             swal({
                 title: "¡Registro exitoso!",
                 text: "Su cuenta ha sido registrada con éxito.",
                 icon: "success",
                 button: "OK",
+                
             }).then(() => {
+                storeData();
                 window.location.reload(); // Recargar la página después de que el usuario presione "OK"
             });
         }
@@ -168,6 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         return isValid;
+        
+        
     }
 
     function validateLoginForm() {
@@ -210,4 +224,13 @@ document.addEventListener('DOMContentLoaded', () => {
         errorSpan.textContent = '';errorSpan.classList.remove('text-danger');
     }
 });
+function storeData(){
+    let usuarioData= {
+        nombre: fullName.value,
+        phone:phoneJS.value,
+        email:emailJS.value,
+        password:passwordJS.value
 
+    }
+    localStorage.setItem("usuarioData",JSON.stringify(usuarioData))
+ }
