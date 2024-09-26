@@ -4,12 +4,17 @@ footer{
     border: solid, #FF900D, 2px;
     background-color: #FF900D;
     text-align: center;
-    
+    align-items: center;
+    clear: both;
+    position: relative;
+    margin-top: 50px;
 }
+
 
 #ulc1, #ulc2, #ulc3{
     list-style: none;
-    margin-right: 5%;
+    
+    
 }
 
 a{
@@ -20,3 +25,4 @@ a{
 h5{
     color: #ecf0f1;
 }
+

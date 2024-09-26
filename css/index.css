@@ -5,7 +5,6 @@
     background-color: var(--bg-color);
     color: var(--text-color);
     width: 100vw;
-    height: 500vh;
     margin: 0;
 }
 
@@ -46,4 +45,11 @@ img {
     max-width: 600px;
     height: auto;
 }
+
+.container {
+    min-height: 100vh; /* 100% de la altura de la ventana */
+    
+}
+
+
 
