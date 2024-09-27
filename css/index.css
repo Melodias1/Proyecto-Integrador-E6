@@ -12,6 +12,7 @@
     background-color: var(--container-bg-color);
     height: 300px;
     text-align: center;
+    min-height: 100vh;
 }
 
 .navbar-container {
@@ -46,10 +47,22 @@ img {
     height: auto;
 }
 
-.container {
-    min-height: 100vh; /* 100% de la altura de la ventana */
-    
+
+
+.btn-custom {
+    background-color: #FF900D;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
+    margin-top: 4em;
+    width: 150px;
+    height: 40px;    
 }
 
+.btn-custom:hover {
+    background-color: #FF900D;
+    transform: scale(1.1);
+    border: 2px solid black;
+    opacity: 0.8;
+}
 
 

@@ -44,7 +44,7 @@
 
 // ===== cargar publicaciones usando las reglas de negocio propuestas en el documento de tareas======
 function addItem(item){
-    const itemHTML = '<div class="col-sm-12"><div class="card mb-5 col-sm-" style="max-width: 28em; ">\n' +
+    const itemHTML = '<div class="col-sm-12"><div class="card mb-5 col-sm-" style="max-width: 2em; ">\n' +
         '    <img src="'+item.img +'" class="card-img-top" alt="image">\n' +
         '    <div class="card-body ">\n' +
         '        <h5 class="card-title">'+item.name+'</h5>\n' +

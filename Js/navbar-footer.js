@@ -4,17 +4,17 @@ let home= "Inicio"
 let linkHome="../index.html"
 let sobreNosotros= "Sobre Nosotros"
 let linkSobre="../WebPages/aboutUs.html"
-let contactanos= "Contactanos"
+let contactanos= "Contáctanos"
 let linkContactanos="../WebPages/contactUs.html"
 let feed= "Feed"
 let linkFeed="../WebPages/feed.html"
 let bandeja= "Bandeja de Entrada"
 let linkBandeja="../WebPages/inbox.html"
-let iniciarSesion= "Iniciar Sesion"
+let iniciarSesion= "Iniciar Sesión"
 let linkIniciarSesion="../WebPages/IniciarSesion.html"
 let perfil= "Mi Perfil"
 let linkPerfil="../WebPages/perfil.html"
-let busqueda= "Busqueda"
+let busqueda= "Búsqueda"
 let linkBusqueda="../WebPages/search.html"
 
 const footerBody = document.getElementsByClassName("footerBody").item(0);
@@ -35,7 +35,7 @@ const navBar=`<nav class="navbar navbar-expand-md bg-white ">
             <ul class="navbar-nav m-auto">
 
             <li class="nav-item">
-                <a class="nav-link active" href="${linkHome}">${home}</a>
+                <a class="nav-link active " href="${linkHome}">${home}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="${linkSobre}">${sobreNosotros}</a>
@@ -76,7 +76,7 @@ window.addEventListener('load', function() {
     const footerHTML=`
         <footer>
     <div class="container-fluid">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" style="justify-content:center;">
         <div class="col">
             <h5 class="footer-title">Guarniapp</h4>
             <ul id="ulc1">

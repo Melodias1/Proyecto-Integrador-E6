@@ -1,9 +1,9 @@
 function addItem(item){
     const itemHTML = `
     <div class="col-sm-12">
-        <div class="card mb-5 col-sm-" style="max-width: 28em;">
-            <img src="${item.img}" class="card-img-top" alt="image">
-            <div class="card-body">
+        <div class="card mb-5 col-sm" style="max-width: 28em; ">
+            <img src="${item.img}" class="card-img-top" alt="image" style="max-height:14em;">
+            <div class="card-body col-sm">
                 <h5 class="card-title">${item.name}</h5>
                 <p class="card-text">${item.description}</p>
                 <div class="comments-section" id="comments-${item.date || Date.now()}">
