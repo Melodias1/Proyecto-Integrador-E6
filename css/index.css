@@ -54,8 +54,9 @@ img {
     font-weight: bold;
     transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
     margin-top: 4em;
-    width: 150px;
-    height: 40px;    
+    width: 250px;
+    height: 60px; 
+     
 }
 
 .btn-custom:hover {
