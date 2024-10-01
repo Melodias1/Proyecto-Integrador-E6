@@ -147,39 +147,64 @@ function storeData(){
 let usuariosDb=[{nombre:'Francisco',
     apellido:'Martinez',
     email:'franciscoM@domain.com',
-    pass:'contraseña123'
+    pass:'contrasena123'
 },{nombre:'Ricardo',
     apellido:'Perez',
-    email:'RicardoP@domain.com',
+    email:'ricardoP@domain.com',
     pass:'contraseña456'
 },{nombre:'Jesus',
     apellido:'Rodriguez',
-    email:'JesusR@domain.com',
+    email:'jesusR@domain.com',
     pass:'contraseña789'
 },{nombre:'Jessica',
     apellido:'Vega',
-    email:'JessicaV@domain.com',
+    email:'jessicaV@domain.com',
     pass:'contraseña321'
 }]
 console.log(usuariosDb);
 localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb))
 
+//===========funcion para borrar alertas=============
+function borrarError(input) {
+    const errorSpan = input.nextElementSibling;
+    errorSpan.textContent = '';
+    errorSpan.classList.remove('text-danger');
+}
+//===========funcion para mostrar error=============
+function mostrarError(input, message) {
+    const errorSpan = input.nextElementSibling;
+    errorSpan.textContent = message;
+    errorSpan.classList.add('text-danger');
+}
+
 //==========creacion de funcion para validar usuario y contraseña en local=============
 //boton de validacion de formulario
-btnLogin.addEventListener("click",()=>{
-
+btnLogin.addEventListener("click",(event)=>{
+    event.preventDefault();
+    //variable bandera
+    let usuarioEcnontrado=false;
+//traer lista de usuarios
     let usersLocalDb= JSON.parse(localStorage.getItem('usuariosDb')) || [];
     
+    borrarError(document.getElementById('loginTitle'));
+    console.log(usuarioLoginValid.value + " "+ passLoginValid.value)
     usersLocalDb.forEach(element => {
-        if (usuarioLoginValid==element.email && passLoginValid==element.pass) {
-            
+        if (usuarioLoginValid.value===element.email && passLoginValid.value===element.pass) {
+            usuarioEcnontrado=true
+            swal({
+                title: "Inicio exitoso!",
+                text: `Bienvenido, ${element.nombre}`,
+                icon: "success",
+                button: "OK",
+                
+            })
         }
+       
     });
 
-
-
-
-
+    if(!usuarioEcnontrado){
+        mostrarError(document.getElementById('loginTitle'),'Usuario o contraseña no coinciden');
+    }
 
 
 
