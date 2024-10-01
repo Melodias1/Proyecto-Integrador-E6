@@ -4,8 +4,9 @@ let emailJS= document.getElementById("regEmail");
 let phoneJS= document.getElementById("phone");
 let passwordJS= document.getElementById("password")
 let confPassJS= document.getElementById("confirmPassword");
-
-
+let btnLogin = document.getElementById("btnLogin");
+let usuarioLoginValid= document.querySelector('#loginEmail');
+let passLoginValid= document.querySelector('#loginPassword')
 document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.getElementById('registrationForm');
     const loginForm = document.getElementById('loginForm');
@@ -141,3 +142,46 @@ function storeData(){
     }
     localStorage.setItem("usuarioData",JSON.stringify(usuarioData))
  }
+// =================Creacion de base de datos de usuarios para el login========
+//array de usuarios
+let usuariosDb=[{nombre:'Francisco',
+    apellido:'Martinez',
+    email:'franciscoM@domain.com',
+    pass:'contraseña123'
+},{nombre:'Ricardo',
+    apellido:'Perez',
+    email:'RicardoP@domain.com',
+    pass:'contraseña456'
+},{nombre:'Jesus',
+    apellido:'Rodriguez',
+    email:'JesusR@domain.com',
+    pass:'contraseña789'
+},{nombre:'Jessica',
+    apellido:'Vega',
+    email:'JessicaV@domain.com',
+    pass:'contraseña321'
+}]
+console.log(usuariosDb);
+localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb))
+
+//==========creacion de funcion para validar usuario y contraseña en local=============
+//boton de validacion de formulario
+btnLogin.addEventListener("click",()=>{
+
+    let usersLocalDb= JSON.parse(localStorage.getItem('usuariosDb')) || [];
+    
+    usersLocalDb.forEach(element => {
+        if (usuarioLoginValid==element.email && passLoginValid==element.pass) {
+            
+        }
+    });
+
+
+
+
+
+
+
+
+
+});
