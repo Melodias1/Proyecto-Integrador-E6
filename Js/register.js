@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //    phoneJS.value="";
             //    passwordJS.value="";
             //    confPassJS.value="";
-            window.location.reload();
+            window.location.reload();// recarga ventana
             });
         }
     });
@@ -190,7 +190,7 @@ btnLogin.addEventListener("click",(event)=>{
     let usuarioEcnontrado=false;
 //traer lista de usuarios
     let usersLocalDb= JSON.parse(localStorage.getItem('usuariosDb')) || [];
-    //borrar alertas
+    //borrar alertas y coloca el texto
      borrarError(document.getElementById('loginEmail'),'Email (nombre de usuario)');
      borrarError(document.getElementById('loginPassword'),'Contraseña');
    // ciclo foreach donde se compara el correo y la contraseña
@@ -207,6 +207,7 @@ btnLogin.addEventListener("click",(event)=>{
             //borra los campos en caso de ser exitoso
             usuarioLoginValid.value=""
             passLoginValid.value=""
+            //lleva a el feed despues de 3s
             setTimeout(() => {
                 window.location.href="../WebPages/feed.html"
                 
