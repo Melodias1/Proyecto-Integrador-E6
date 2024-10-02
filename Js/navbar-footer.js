@@ -6,8 +6,10 @@ let sobreNosotros= "Sobre Nosotros"
 let linkSobre="../WebPages/aboutUs.html"
 let contactanos= "Contáctanos"
 let linkContactanos="../WebPages/contactUs.html"
-let publicaciones= "Publicaciones"
-let linkPublicaciones="../WebPages/feed.html"
+let feed= "Feed"
+let linkFeed="../WebPages/feed.html"
+let bandeja= "Bandeja de Entrada"
+let linkBandeja="../WebPages/feed.html"
 let iniciarSesion= "Iniciar Sesión"
 let linkIniciarSesion="../WebPages/IniciarSesion.html"
 let perfil= "Mi Perfil"
@@ -41,18 +43,15 @@ const navBar=`<nav class="navbar navbar-expand-md bg-white ">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="${linkContactanos}">${contactanos}</a>
             </li>
+           
             <li class="nav-item">
-                <a class="nav-link active" href="${linkPublicaciones}">${publicaciones}</a>
+                <a class="nav-link active" href="${linkBandeja}">${bandeja}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="${linkIniciarSesion}">${iniciarSesion}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkPerfil}">${perfil}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkBusqueda}">${busqueda}</a>
-            </li>
+           
+           
             
             </ul>
         </div>
