@@ -34,18 +34,17 @@ h1 {
     height: 0;
     padding-bottom: 100%;
     overflow: hidden;
-
-
 }
+
 .btn-add {
     width: 100px; 
     height: 100px; 
-    font-size: 30px;
+    font-size: 50px;
     border-radius: 50%; 
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FF900D;
+    background-color: #0419fa;
     color: white;
     border: none; 
     position: fixed; 
@@ -55,7 +54,7 @@ h1 {
     transition: background-color 0.2s, transform 0.2s, opacity 0.3s;
 }
 .btn-add:hover {
-    background-color: #FF900D;
+    background-color: #0d05f4;
     transform: scale(1.1);
     border: 2px solid black;
     opacity: 0.8;

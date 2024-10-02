@@ -39,14 +39,14 @@
                                         
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Titulo de la receta</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="tituloText">
+                        <input type="text" class="form-control" id="tituloText">
+                        <label id="fileError" class="text-danger" style="display: none;"></label>
                     </div>
-  
-                
+                    
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí...</label>
-                        <textarea class="form-control w-30" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        <span id="textAreaError" class="error-messagetext-danger"></span>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label id="textAreaError" class="text-danger" style="display: none;"></label>
                     </div>
                 
                     <div class="col-auto">
