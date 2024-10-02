@@ -1,41 +1,51 @@
- // obtener texto del text area y titulo
+// obtener texto del text area y titulo
 const userText = document.getElementById('exampleFormControlTextarea1');
 const tituloText = document.getElementById('tituloText');
+const errorSpanText = document.getElementById('textAreaError');
+const errorSpanTitle = document.getElementById('fileError');
 
-
-
-document.getElementById("btnPublicar").addEventListener("click", function(event){
+document.getElementById("btnPublicar").addEventListener("click", function(event) {
     event.preventDefault();
-    // obtener url de imagen almacenado al subirla con el widget
-    const imageUrl = localStorage.getItem('uploadedImageUrl');
-  
-    
 
-    // creacion del json
-    const publicationData = {
-        img: imageUrl,
-        description: userText.value,
-        name: tituloText.value,
-        comments: []
-    };
+    // Limpiar mensajes de error previos
+    errorSpanText.style.display = "none";
+    errorSpanTitle.style.display = "none";
 
-    // guardar json en local storage
-    let publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    // Validar campos
+    let isValid = true;
 
-    // Asegurar que sea un array (en caso de que esté mal formateado)
-    if (!Array.isArray(publications)) {
-        publications = [];
+    // Validar el título
+    if (tituloText.value.trim() === "") {
+        errorSpanTitle.textContent = "El título no puede estar vacío.";
+        errorSpanTitle.style.display = "block";
+        isValid = false;
     }
 
-    // Agregar la nueva publicación al array
-    publications.push(publicationData);
+    // Validar el textarea
+    if (userText.value.trim() === "") {
+        errorSpanText.textContent = "El texto no puede estar vacío.";
+        errorSpanText.style.display = "block";
+        isValid = false;
+    }
 
-    // Guardar el array actualizado en localStorage
-    localStorage.setItem('publicationData', JSON.stringify(publications));
+    // Si todo es válido, proceder con la creación del JSON
+    if (isValid) {
+        const imageUrl = localStorage.getItem('uploadedImageUrl');
+        const publicationData = {
+            img: imageUrl,
+            description: userText.value,
+            name: tituloText.value,
+            comments: []
+        };
 
-    // Redirigir a otra página (por ejemplo, el feed)
-    window.location = '../WebPages/feed.html';
+        let publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+        if (!Array.isArray(publications)) {
+            publications = [];
+        }
+        publications.push(publicationData);
+        localStorage.setItem('publicationData', JSON.stringify(publications));
+
+        // Redirigir a otra página
+        window.location = '../WebPages/feed.html';
+    }
 });
-
-
-

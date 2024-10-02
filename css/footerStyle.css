@@ -25,3 +25,12 @@ h5{
     color: #ecf0f1;
 }
 
+.footer-logo {
+    text-align: center; /* Centra el logo */
+    margin-top: 20px; /* Espacio superior */
+}
+
+.github-logo {
+    width: 40px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción */
+}

@@ -1,0 +1,54 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Fondo suave */
+}
+
+.container {
+    margin-top: 50px; /* Espacio superior */
+}
+
+.input-group, .mb-3 {
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.input-group .form-control {
+    border: 1px solid #ced4da; /* Borde estándar */
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+.input-group .form-control:focus {
+    border-color: #FF900D; /* Borde al enfocar */
+    box-shadow: 0 0 5px rgba(255, 144, 13, 0.5); /* Sombra suave */
+}
+
+.btn-primary {
+    background-color: #FF900D; /* Color principal */
+    border: none; /* Sin borde */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.btn-primary:hover {
+    background-color: #e68a00; /* Color al pasar el mouse */
+}
+
+.text-danger {
+    font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+    color: #dc3545; /* Color rojo estándar */
+    margin-top: 5px; /* Espacio superior */
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem; /* Espacio inferior */
+}
+
+.input-group {
+    align-items: center; /* Centrar verticalmente */
+}
+
+#list-items {
+    margin-top: 20px; /* Espacio superior */
+    padding: 15px; /* Espaciado interno */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}

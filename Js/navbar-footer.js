@@ -6,10 +6,8 @@ let sobreNosotros= "Sobre Nosotros"
 let linkSobre="../WebPages/aboutUs.html"
 let contactanos= "Contáctanos"
 let linkContactanos="../WebPages/contactUs.html"
-let feed= "Feed"
-let linkFeed="../WebPages/feed.html"
-let bandeja= "Bandeja de Entrada"
-let linkBandeja="../WebPages/inbox.html"
+let publicaciones= "Publicaciones"
+let linkPublicaciones="../WebPages/feed.html"
 let iniciarSesion= "Iniciar Sesión"
 let linkIniciarSesion="../WebPages/IniciarSesion.html"
 let perfil= "Mi Perfil"
@@ -44,10 +42,7 @@ const navBar=`<nav class="navbar navbar-expand-md bg-white ">
                 <a class="nav-link active" aria-current="page" href="${linkContactanos}">${contactanos}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="${linkFeed}">${feed}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkBandeja}">${bandeja}</a>
+                <a class="nav-link active" href="${linkPublicaciones}">${publicaciones}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="${linkIniciarSesion}">${iniciarSesion}</a>
@@ -80,23 +75,28 @@ window.addEventListener('load', function() {
         <div class="col">
             <h5 class="footer-title">Guarniapp</h4>
             <ul id="ulc1">
-                <li><a href="./feed.html">Inicio</a></li>
+                <li><a href="../index.html">Inicio</a></li>
             </ul>
         </div>
         <div class="col">
-            <h5 class="footer-title">Compañia</h4>
+            <h5 class="footer-title">Compañía</h4>
             <ul id="ulc2">
-                <li><a href="./contactUs.html">Conocenos</a></li>
-                <li><a href="./Mision.html">Misión</a></li>
-                <li><a href="./Vision.html">Visión</a></li>
+                <li><a href="../WebPages/aboutUs.html">Conócenos</a></li>
+                <li><a href="../WebPages/Mision.html">Misión</a></li>
+                <li><a href="../WebPages/Vision.html">Visión</a></li>
             </ul>
         </div>
         <div class="col">
             <h5 class="footer-title">Soporte</h4>
             <ul id="ulc3">
-                <li><a href="./feed.html">Conocenos</a></li>
+                <li><a href="../WebPages/contactUs.html">Contáctanos</a></li>
             </ul>
         </div>
+        </div>
+        <div class="footer-logo">
+        <a href="https://github.com/Melodias1/Proyecto-Integrador-E6" target="_blank">
+        <img src="../assets/GitHub-Logo.png" alt="GitHub Logo" class="github-logo">
+        </a>
         </div>
     </div>
     </footer>
