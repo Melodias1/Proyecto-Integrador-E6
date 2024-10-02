@@ -33,7 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             }).then(() => {
                 storeData();
-                window.location.reload(); // Recargar la página después de que el usuario presione "OK"
+            //    fullName.value="";
+            //    emailJS.value="";
+            //    phoneJS.value="";
+            //    passwordJS.value="";
+            //    confPassJS.value="";
+            window.location.reload();
             });
         }
     });
@@ -85,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emailJS.value="";
         phoneJS.value=""
         passwordJS.value="";
-        window.open("../WebPages/feed.html");
+        
         return isValid;
         
         
@@ -147,7 +152,7 @@ function storeData(){
 let usuariosDb=[{nombre:'Francisco',
     apellido:'Martinez',
     email:'franciscoM@domain.com',
-    pass:'contrasena123'
+    pass:'contraseña123'
 },{nombre:'Ricardo',
     apellido:'Perez',
     email:'ricardoP@domain.com',
@@ -165,9 +170,9 @@ console.log(usuariosDb);
 localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb))
 
 //===========funcion para borrar alertas=============
-function borrarError(input) {
+function borrarError(input,message) {
     const errorSpan = input.nextElementSibling;
-    errorSpan.textContent = '';
+    errorSpan.textContent = message;
     errorSpan.classList.remove('text-danger');
 }
 //===========funcion para mostrar error=============
@@ -185,9 +190,10 @@ btnLogin.addEventListener("click",(event)=>{
     let usuarioEcnontrado=false;
 //traer lista de usuarios
     let usersLocalDb= JSON.parse(localStorage.getItem('usuariosDb')) || [];
-    
-    borrarError(document.getElementById('loginTitle'));
-    console.log(usuarioLoginValid.value + " "+ passLoginValid.value)
+    //borrar alertas
+     borrarError(document.getElementById('loginEmail'),'Email (nombre de usuario)');
+     borrarError(document.getElementById('loginPassword'),'Contraseña');
+   // ciclo foreach donde se compara el correo y la contraseña
     usersLocalDb.forEach(element => {
         if (usuarioLoginValid.value===element.email && passLoginValid.value===element.pass) {
             usuarioEcnontrado=true
@@ -198,12 +204,21 @@ btnLogin.addEventListener("click",(event)=>{
                 button: "OK",
                 
             })
+            //borra los campos en caso de ser exitoso
+            usuarioLoginValid.value=""
+            passLoginValid.value=""
+            setTimeout(() => {
+                window.location.href="../WebPages/feed.html"
+                
+            }, 3000);
+            
         }
        
     });
 
     if(!usuarioEcnontrado){
-        mostrarError(document.getElementById('loginTitle'),'Usuario o contraseña no coinciden');
+        //muestra un error dentro del campo del email
+        mostrarError(document.getElementById('loginEmail'),'Usuario o contraseña no coinciden');
     }
 
 
