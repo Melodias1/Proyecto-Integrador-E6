@@ -10,10 +10,14 @@ footer{
 }
 
 
-#ulc1, #ulc2, #ulc3{
+#ulc1, #ulc2, #ulc3 {
     list-style: none;
-    
-    
+    padding: 0; 
+    text-align: left;
+}
+
+li {
+    margin: 10px 0; 
 }
 
 a{
@@ -23,6 +27,7 @@ a{
 
 h5{
     color: #ecf0f1;
+    text-align: left;
 }
 
 .footer-logo {
