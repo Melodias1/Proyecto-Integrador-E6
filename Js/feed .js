@@ -1,30 +1,23 @@
-// Al cargar la página, cargar las publicaciones
-function loadPublications() {
-    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
-    if (Array.isArray(publications)) {
-        publications.forEach(publication => {
-            addItem(publication);
-        });
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+    loadPublications();
+});
 
-// Función para agregar un nuevo elemento (publicación)
 function addItem(item) {
     if (!item.comments) {
-        item.comments = []; // Asegúrate de que 'comments' esté inicializado
+        item.comments = [];
     }
-
     const itemHTML = `
     <div class="col-sm-12">
-        <div class="card mb-5 col-sm" style="max-width: 28em;" onclick="openModal('${item.date || Date.now()}')">
+        <div class="card mb-5 col-sm" style="max-width: 28em;">
             <img src="${item.img}" class="card-img-top" alt="image" style="max-height:14em;">
             <div class="card-body col-sm">
                 <h5 class="card-title">${item.name}</h5>
+                <button class="btn btn-danger" onclick="removeRecipe('${item.name}')">Eliminar</button>
                 <p class="card-text">${item.description}</p>
                 <p class="card-date">${new Date(item.date || Date.now()).toLocaleString()}</p>
                 <div class="comments-section" id="comments-${item.date || Date.now()}">
                     <h6>Comentarios:</h6>
-                    <div class="comments-list">${item.comments.map(comment => `<div class="comment">${comment}</div>`).join('')}</div>
+                    <div class="comments-list"></div>
                     <textarea class="form-control" placeholder="Escribe un comentario..." rows="2"></textarea>
                     <a href="#" class="btn btn-primary mt-2" onclick="addComment('${item.date || Date.now()}')">Comentar</a>
                 </div>
@@ -32,11 +25,23 @@ function addItem(item) {
         </div>
         <br/>
     </div>`;
+
     const itemsContainer = document.getElementById("list-items");
-    itemsContainer.insertAdjacentHTML("afterbegin", itemHTML);
+    itemsContainer.insertAdjacentHTML("beforeend", itemHTML);
 }
 
-// Función para agregar un comentario
+function removeRecipe(name) {
+    const itemsContainer = document.getElementById("list-items");
+    const cards = itemsContainer.getElementsByClassName('card-title');
+    for (let card of cards) {
+        if (card.textContent === name) {
+            card.closest('.col-sm-12').remove();
+            break;
+        }
+    }
+    removeFromLocalStorage(name);
+}
+
 function addComment(date) {
     const commentTextarea = document.querySelector(`#comments-${date} textarea`);
     const commentText = commentTextarea.value;
@@ -48,29 +53,50 @@ function addComment(date) {
         newComment.textContent = commentText;
         commentsList.appendChild(newComment);
 
-        // Cargar publicaciones del localStorage
         const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
         const publicationIndex = publications.findIndex(pub => pub.date === date);
 
         if (publicationIndex !== -1) {
+            if (!publications[publicationIndex].comments) {
+                publications[publicationIndex].comments = [];
+            }
             publications[publicationIndex].comments.push(commentText);
-            localStorage.setItem('publicationData', JSON.stringify(publications)); // Guardar en localStorage
+            localStorage.setItem('publicationData', JSON.stringify(publications));
         }
 
         commentTextarea.value = ''; // Limpiar el textarea
-    } else {
-        alert("Por favor, escribe un comentario.");
+        updateTrendingRecipes(); // Actualiza las tendencias
     }
 }
 
-// Ejemplo de publicaciones iniciales
-addItem({'name':'juice', 'img':'https://www.gs1india.org/media/Juice_pack.jpg', 'description':'Orange and Apple juice fresh and delicious'});
-addItem({'name':'Tayto', 'img':'https://www.irishtimes.com/polopoly_fs/1.4078148!/image/image.jpg', 'description':'Cheese & Onion Chips'});
 
-// Funcionalidad del botón para abrir una nueva publicación
+function loadPublications() {
+    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    if (Array.isArray(publications)) {
+        publications.forEach(publication => {
+            addItem(publication);
+        });
+    }
+}
+
+// Funcionalidad del botón "+"
 document.getElementById("btnNewPublication").onclick = function() {
     window.open("../WebPages/publicaciones.html", "_blank");
-};
+};  
 
-// Cargar las publicaciones al inicio
-loadPublications();
+// Ejemplo de adición de recetas iniciales
+const initialRecipes = [
+    {
+        'name': 'juice',
+        'img': 'https://www.gs1india.org/media/Juice_pack.jpg',
+        'description': 'Orange and Apple juice fresh and delicious'
+    },
+    {
+        'name': 'Tayto',
+        'img': 'https://www.irishtimes.com/polopoly_fs/1.4078148!/image/image.jpg',
+        'description': 'Cheese & Onion Chips'
+    },
+    // Agrega más recetas aquí...
+];
+
+initialRecipes.forEach(recipe => addItem(recipe));

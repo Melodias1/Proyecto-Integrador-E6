@@ -1,13 +1,18 @@
+document.addEventListener('DOMContentLoaded', () => {
+    createIcons({ icons });
+});
+
 function addItem(item){
     if (!item.comments) {
         item.comments = [];
     }
-    const itemHTML = `
+    const itemHTML =  `
     <div class="col-sm-12">
-        <div class="card mb-5 col-sm" style="max-width: 28em;" onclick="openModal('${item.date || Date.now()}')">
+        <div class="card mb-5 col-sm" style="max-width: 28em;">
             <img src="${item.img}" class="card-img-top" alt="image" style="max-height:14em;">
             <div class="card-body col-sm">
                 <h5 class="card-title">${item.name}</h5>
+                <button class="btn btn-danger" onclick="removeRecipe('${item.name}')">Eliminar</button>
                 <p class="card-text">${item.description}</p>
                 <p class="card-date">${new Date(item.date || Date.now()).toLocaleString()}</p>
                 <div class="comments-section" id="comments-${item.date || Date.now()}">
@@ -20,10 +25,22 @@ function addItem(item){
         </div>
         <br/>
     </div>`;
+
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.insertAdjacentHTML ("afterbegin",itemHTML);
 }
 
+function removeRecipe(name) {
+    const itemsContainer = document.getElementById("recipe-list");
+    const cards = itemsContainer.getElementsByClassName('card-title');
+    for (let card of cards) {
+        if (card.textContent === name) {
+            card.closest('.col-sm-12').remove();
+            break;
+        }
+    }
+    removeFromLocalStorage(name);
+}
 //==============================cargar comentarios=============================================
 function addComment(date) {
     const commentTextarea = document.querySelector(`#comments-${date} textarea`);
@@ -48,10 +65,10 @@ function addComment(date) {
         }
 
         commentTextarea.value = ''; // Limpiar el textarea
-    } else {
-        alert("Por favor, escribe un comentario.");
+        updateTrendingRecipes(); // Actualiza las tendencias
     }
 }
+
 //==============================que vienen de la api=============================================
 addItem({'name':'juice',
     'img':'https://www.gs1india.org/media/Juice_pack.jpg',
