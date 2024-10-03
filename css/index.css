@@ -47,14 +47,13 @@ img {
     height: auto;
 }
 
-
-
 .btn-custom {
     background-color: #FF900D;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
     margin-top: 4em;
     margin-left: 25px;
+    margin-bottom: 30px;
     width: 250px;
     height: 60px; 
      
