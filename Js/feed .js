@@ -1,3 +1,5 @@
+let usuarioLoged= JSON.parse(localStorage.getItem('usuarioLoged'));
+
 document.addEventListener('DOMContentLoaded', () => {
     loadPublications();
 });
@@ -8,13 +10,16 @@ function addItem(item) {
     }
     const itemHTML = `
     <div class="col-sm-12">
-        <div class="card mb-5 col-sm" style="max-width: 28em;">
+        <div class="card mb-5 col-sm" style="max-width: 28em">
+        <div class="card-body col-sm">
+            <h5 class="card-title">${usuarioLoged.nombre} ${usuarioLoged.apellido}</h5>
+            </div>
             <img src="${item.img}" class="card-img-top" alt="image" style="max-height:14em;">
             <div class="card-body col-sm">
                 <h5 class="card-title">${item.name}</h5>
                 <button class="btn btn-danger" onclick="removeRecipe('${item.name}')">Eliminar</button>
                 <p class="card-text">${item.description}</p>
-                <p class="card-date">${new Date(item.date || Date.now()).toLocaleString()}</p>
+                
                 <div class="comments-section" id="comments-${item.date || Date.now()}">
                     <h6>Comentarios:</h6>
                     <div class="comments-list"></div>

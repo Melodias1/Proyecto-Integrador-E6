@@ -42,7 +42,11 @@
                         <input type="text" class="form-control" id="tituloText">
                         <label id="fileError" class="text-danger" style="display: none;"></label>
                     </div>
-                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default"><button id="upload_widget" class="btn btn-primary mb-3">Subir imagen</button></span>
+                        <input type="text" class="form-control" id="linkImg" placeholder="hola">
+                        
+                    </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí...</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -50,7 +54,7 @@
                     </div>
                 
                     <div class="col-auto">
-                        <button id="upload_widget" class="btn btn-primary mb-3">Subir imagen</button>
+                        <!-- <button id="upload_widget" class="btn btn-primary mb-3">Subir imagen</button> -->
                         <span id="fileError" class="error-messagetext-danger"></span>
                         <button  class="btn btn-primary mb-3" id="btnPublicar">Publicar</button>
                     </div>
@@ -85,6 +89,9 @@
       
     //   subir al local storage
                 localStorage.setItem('uploadedImageUrl', imageUrl);
+                let inputLink =document.getElementById('linkImg');
+
+                inputLink.placeholder=`${imageUrl}`;
         }
       }
     )

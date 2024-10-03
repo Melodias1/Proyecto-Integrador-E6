@@ -183,7 +183,7 @@ function mostrarError(input, message) {
 }
 
 //==========creacion de funcion para validar usuario y contraseña en local=============
-//boton de validacion de formulario
+//boton de validacion de formulario inicio de sesion
 btnLogin.addEventListener("click",(event)=>{
     event.preventDefault();
     //variable bandera
@@ -204,6 +204,8 @@ btnLogin.addEventListener("click",(event)=>{
                 button: "OK",
                 
             })
+            //agregar usuario logeado al local storage
+            localStorage.setItem("usuarioLoged",JSON.stringify(element))
             //borra los campos en caso de ser exitoso
             usuarioLoginValid.value=""
             passLoginValid.value=""
