@@ -94,7 +94,7 @@ window.addEventListener('load', function() {
         </div>
         <div class="footer-logo">
         <a href="https://github.com/Melodias1/Proyecto-Integrador-E6" target="_blank">
-        <img src="../assets/GitHub-Logo.png" alt="GitHub Logo" class="github-logo">
+        <img src="../assets/logotipo-de-github.png" alt="GitHub Logo" class="github-logo">
         </a>
         </div>
     </div>
