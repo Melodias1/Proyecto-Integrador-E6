@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 hideError(input);
             }
-        });
+        }); 
+
 
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
