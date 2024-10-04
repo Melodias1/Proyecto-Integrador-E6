@@ -3,7 +3,13 @@ const userText = document.getElementById('exampleFormControlTextarea1');
 const tituloText = document.getElementById('tituloText');
 const errorSpanText = document.getElementById('textAreaError');
 const errorSpanTitle = document.getElementById('fileError');
-
+let nameLog="";
+let lastNameLog="";
+if(localStorage.getItem('usuarioLoged')!=null){
+     usuarioLoged= JSON.parse(localStorage.getItem('usuarioLoged'));
+     nameLog=usuarioLoged.nombre;
+     lastNameLog=usuarioLoged.apellido
+}
 document.getElementById("btnPublicar").addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -35,7 +41,9 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
             img: imageUrl,
             description: userText.value,
             name: tituloText.value,
-            comments: []
+            comments: [],
+            userFirstName:nameLog ,
+            userLastName: lastNameLog
         };
 
         let publications = JSON.parse(localStorage.getItem('publicationData')) || [];

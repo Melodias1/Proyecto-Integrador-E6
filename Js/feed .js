@@ -1,4 +1,5 @@
-let usuarioLoged= JSON.parse(localStorage.getItem('usuarioLoged'));
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     loadPublications();
@@ -12,7 +13,7 @@ function addItem(item) {
     <div class="col-sm-12">
         <div class="card mb-5 col-sm" style="max-width: 28em">
         <div class="card-body col-sm">
-            <h5 class="card-title">${usuarioLoged.nombre} ${usuarioLoged.apellido}</h5>
+            <h5 class="card-title">${item.userFirstName} ${item.userLastName}</h5>
             </div>
             <img src="${item.img}" class="card-img-top" alt="image" style="max-height:14em;">
             <div class="card-body col-sm">
@@ -94,13 +95,17 @@ const initialRecipes = [
     {
         'name': 'juice',
         'img': 'https://www.gs1india.org/media/Juice_pack.jpg',
-        'description': 'Orange and Apple juice fresh and delicious'
+        'description': 'Orange and Apple juice fresh and delicious',
+        'userFirstName':'Ricardo' ,
+        'userLastName': 'GuarniApp'
     },
     {
         'name': 'Tayto',
         'img': 'https://www.irishtimes.com/polopoly_fs/1.4078148!/image/image.jpg',
-        'description': 'Cheese & Onion Chips'
-    },
+        'description': 'Cheese & Onion Chips',
+         'userFirstName':'Jesus' ,
+        'userLastName': 'GuarniApp'
+    }
     // Agrega más recetas aquí...
 ];
 
