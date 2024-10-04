@@ -9,3 +9,14 @@
 .nav-link:hover { 
     text-decoration: underline white 3px ; 
 }
+
+#btnExit{
+    display:inline-block;
+    background:none;
+    width: 32px;
+    height: 32px;
+    background:url('/assets/box-arrow-right.svg' ) no-repeat;
+    background-size: contain;
+    border: none;
+    }
+    

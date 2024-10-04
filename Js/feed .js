@@ -33,7 +33,7 @@ function addItem(item) {
     </div>`;
 
     const itemsContainer = document.getElementById("list-items");
-    itemsContainer.insertAdjacentHTML("beforeend", itemHTML);
+    itemsContainer.insertAdjacentHTML("afterbegin", itemHTML);
 }
 
 function removeRecipe(name) {
@@ -86,9 +86,27 @@ function loadPublications() {
 }
 
 // Funcionalidad del botón "+"
-document.getElementById("btnNewPublication").onclick = function() {
-    window.open("../WebPages/publicaciones.html", "_blank");
-};  
+if(localStorage.getItem('usuarioLoged')!=null){
+    document.getElementById("btnNewPublication").onclick = function() {
+        window.open("../WebPages/publicaciones.html", "_blank");
+    };  
+}else{
+    swal({
+        title: "¡Usuario no encontrado!",
+        text: "Por favor, Inicie sesion o Registre nuevo usuario.",
+        icon: "warning",
+        button: "Ok",
+    });
+    document.getElementById("btnNewPublication").onclick = function() {
+        swal({
+            title: "¡Usuario no encontrado!",
+            text: "Por favor, Inicie sesion o Registre nuevo usuario.",
+            icon: "warning",
+            button: "Ok",
+        });
+    };  
+}
+
 
 // Ejemplo de adición de recetas iniciales
 const initialRecipes = [

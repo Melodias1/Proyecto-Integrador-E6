@@ -38,4 +38,5 @@ h5{
 .github-logo {
     width: 40px; /* Ajusta el tamaño del logo */
     height: auto; /* Mantiene la proporción */
+    display:inline ;
 }

@@ -16,52 +16,18 @@ let perfil= "Mi Perfil"
 let linkPerfil="../WebPages/perfil.html"
 let busqueda= "Búsqueda"
 let linkBusqueda="../WebPages/search.html"
+let navBar="";
 
 const footerBody = document.getElementsByClassName("footerBody").item(0);
 const footerStyle = document.getElementsByTagName("head").item(0);
 
 
 
-const navBar=`<nav class="navbar navbar-expand-md bg-white ">
-        <div class="container-fluid navbar-container">
-        <a class="navbar-brand" href="#">
-            <!--GuarniApp-->
-            <img src="../assets/1.png" alt="GuarniApp Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav m-auto">
 
-            <li class="nav-item">
-                <a class="nav-link active " href="${linkHome}">${home}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkSobre}">${sobreNosotros}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="${linkContactanos}">${contactanos}</a>
-            </li>
-           
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkBandeja}">${bandeja}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkIniciarSesion}">${iniciarSesion}</a>
-            </li>
-           
-           
-            
-            </ul>
-        </div>
-        </div>
-        </nav>`;
 
 
         const styleNav=`<link rel="stylesheet" href="../css/navbarStyle.css">`
 
-        navbody.insertAdjacentHTML("afterbegin",navBar);
 
         css.insertAdjacentHTML("beforeend",styleNav)
         
@@ -108,4 +74,93 @@ window.addEventListener('load', function() {
 
 //     headElements.insertAdjacentHTML("afterbeging",headElements)
 
+// validacion si hay un usuario logueado, de haberlo carga la primera navbar, de no haberlo carga la segunda
+if(localStorage.getItem('usuarioLoged')!=null){
+     navBar=`<nav class="navbar navbar-expand-md bg-white ">
+        <div class="container-fluid navbar-container">
+        
+        <a class="navbar-brand" href="#">
+            <!--GuarniApp-->
+            <img src="../assets/1.png" alt="GuarniApp Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav m-auto">
 
+            <li class="nav-item">
+                <a class="nav-link active " href="${linkHome}">${home}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="${linkSobre}">${sobreNosotros}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="${linkContactanos}">${contactanos}</a>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link active" href="${linkBandeja}">${bandeja}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="${linkIniciarSesion}">${iniciarSesion} </a>
+            </li>
+            
+            
+            
+            </ul>
+        </div>
+              <button id="btnExit"></button>
+        </div>
+        
+        </nav>`;
+
+        //===desloguear al clickear btnExit, borra al usuario logueado y redirije al registro/inicio=====
+
+
+}else{
+    navBar=`<nav class="navbar navbar-expand-md bg-white ">
+    <div class="container-fluid navbar-container">
+    
+    <a class="navbar-brand" href="#">
+        <!--GuarniApp-->
+        <img src="../assets/1.png" alt="GuarniApp Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav m-auto">
+
+        <li class="nav-item">
+            <a class="nav-link active " href="${linkHome}">${home}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="${linkSobre}">${sobreNosotros}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="${linkContactanos}">${contactanos}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="${linkIniciarSesion}">${iniciarSesion} </a>
+        </li>
+        
+        
+        
+        </ul>
+    </div>
+    </div>
+    
+    </nav>`;
+}
+
+navbody.insertAdjacentHTML("afterbegin",navBar);
+let btnExit= document.getElementById('btnExit');
+if(btnExit!=null){
+    btnExit.addEventListener('click',(event)=>{
+        event.preventDefault;
+    
+        localStorage.removeItem('usuarioLoged')
+        window.location='../WebPages/registroUsuarios.html';
+    })
+}
