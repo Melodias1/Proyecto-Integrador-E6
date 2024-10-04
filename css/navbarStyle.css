@@ -3,7 +3,8 @@
 }
 
 .navbar-brand img {
-    width: 120px;
+    width: 250px;
+
 }
 
 .nav-link:hover { 
@@ -20,3 +21,4 @@
     border: none;
     }
     
+   
