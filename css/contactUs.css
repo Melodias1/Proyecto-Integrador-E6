@@ -46,5 +46,10 @@ img {
     border: 2px solid black;
     opacity: 0.8;
 }
+
+#Comentarios {
+    resize: none;
+}
+
 /* Aqui cierra el body */
 
