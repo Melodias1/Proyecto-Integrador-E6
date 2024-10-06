@@ -75,8 +75,6 @@ btnEnviar.addEventListener("click", function(event) {
             to_email: txtEmail.value,
             to_phone: txtTelefono.value,
             to_comments: txtComentarios.value,
-            name: txtNombre.value,
-
             message_html: `Recibimos tu mensaje desde ${txtEmail.value}, con tus comentarios: ${txtComentarios.value}. En breve nos comunicaremos.`, 
         })
         .then(function(response) {
