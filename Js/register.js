@@ -55,11 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
     function validateRegistrationForm() {
         let isValid = true;
 
-        const fields = ['fullName', 'phone', 'regEmail', 'password', 'confirmPassword'];
-        fields.forEach((field) => {
-            const input = document.getElementById(field);
+        const fields = [{ id: 'fullName', message: 'Por favor, introduce tu nombre completo.' },
+            { id: 'phone', message: 'Por favor, introduce un número de teléfono válido (10 dígitos).' },
+            { id: 'regEmail', message: 'Por favor, introduce un correo electrónico válido.' },
+            { id: 'password', message: 'Por favor, introduce una contraseña.' },
+            { id: 'confirmPassword', message: 'Por favor, confirma tu contraseña.' },
+        ];
+
+        fields.forEach(({ id, message }) => {
+            const input = document.getElementById(id);
             if (!input.value.trim()) {
-                showError(input, 'Este campo es obligatorio.');
+                showError(input, message);
                 isValid = false;
             } else {
                 hideError(input);
@@ -87,11 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
             showError(document.getElementById('phone'), 'Por favor, introduce un número de teléfono válido (10 dígitos).');
             isValid = false;
         }
-        fullName.value="";
-        emailJS.value="";
-        phoneJS.value=""
-        passwordJS.value="";
-        
+        // Solo borra los campos si no son válidos
+    if (!isValid) {
+        fields.forEach((field) => {
+            const input = document.getElementById(field);
+            if (!input.value.trim()) {
+                input.value = ""; // Borra solo si el campo está vacío
+            }
+        });
+    }
         return isValid;
         
         
@@ -104,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('loginPassword').value;
 
         if (!email.trim()) {
-            showError(document.getElementById('loginEmail'), 'Este campo es obligatorio.');
+            showError(document.getElementById('loginEmail'), 'El nombre no es válido. Debe tener al menos 3 caracteres.');
             isValid = false;
         } else {
             hideError(document.getElementById('loginEmail'));
@@ -127,13 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showError(input, message) {
-        const errorSpan = input.nextElementSibling;
+        const errorSpan = document.getElementById(input.id + 'Error');
         errorSpan.textContent = message;
         errorSpan.classList.add('text-danger');
     }
 
     function hideError(input) {
-        const errorSpan = input.nextElementSibling;
+        const errorSpan = document.getElementById(input.id + 'Error');
         errorSpan.textContent = '';
         errorSpan.classList.remove('text-danger');
     }
@@ -172,13 +182,13 @@ localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb))
 
 //===========funcion para borrar alertas=============
 function borrarError(input,message) {
-    const errorSpan = input.nextElementSibling;
+    const errorSpan = document.getElementById(input.id + 'Error');
     errorSpan.textContent = message;
     errorSpan.classList.remove('text-danger');
 }
 //===========funcion para mostrar error=============
 function mostrarError(input, message) {
-    const errorSpan = input.nextElementSibling;
+    const errorSpan = document.getElementById(input.id + 'Error');
     errorSpan.textContent = message;
     errorSpan.classList.add('text-danger');
 }
