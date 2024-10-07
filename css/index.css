@@ -41,11 +41,16 @@ h1{
     display: inline-block;
 }
 
-img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
+#carouselExampleAutoplaying {
+    max-width: 600px; /* Establece el ancho fijo */
+    margin: auto; /* Centra el carrusel */
 }
+.carousel-item img {
+    width: 100%; /* Hace que la imagen use el 100% del ancho del contenedor */
+    height: 400px; /* Establece la altura fija */
+    object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
+}
+
 
 .btn-custom {
     background-color: #FF900D;

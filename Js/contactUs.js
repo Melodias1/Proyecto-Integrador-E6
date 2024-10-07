@@ -70,14 +70,11 @@ btnEnviar.addEventListener("click", function(event) {
             button: "Ver info faltante",
         });
     } else {
-//var templateParams = {
-//    to_name: txtNombre.value,
-//    from_name: 'GuarniAPP',
-//    message_html: 'Recibimos tu mensaje, en breve nos comunicaremos.'
-//    };
         emailjs.send(serviceId, templateId, {
             to_name: txtNombre.value,
-            from_name: 'GuarniAPP',
+            to_email: txtEmail.value,
+            to_phone: txtTelefono.value,
+            to_comments: txtComentarios.value,
             message_html: `Recibimos tu mensaje desde ${txtEmail.value}, con tus comentarios: ${txtComentarios.value}. En breve nos comunicaremos.`, 
         })
         .then(function(response) {

@@ -13,6 +13,8 @@
     <!--Acerca CSS Style-->
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/hoverBtn.css">
+    <link rel="stylesheet" href="../css/iniciarSesion.css">
+
 </head>
 <body class="navbody">
     
@@ -61,10 +63,10 @@
         <div class="col-md-6">
             <h2 id="loginTitle">Iniciar sesión</h2>
             <form class="needs-validation" id="loginForm" novalidate>
+                <div><span id="loginEmailError" class="error-messagetext-danger"></span></div>
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
                     <label for="loginEmail">Email (nombre de usuario)</label>
-                    <span id="loginEmailError" class="error-messagetext-danger"></span>
                 </div>
 
                 <div class="form-floating mb-3">
