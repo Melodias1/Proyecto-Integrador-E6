@@ -18,7 +18,7 @@ function addItem(item) {
             <img src="${item.img}" class="card-img-top" alt="image" style="max-height:14em;">
             <div class="card-body col-sm">
                 <h5 class="card-title">${item.name}</h5>
-                <button class="btn btn-danger" onclick="removeRecipe('${item.name}')">Eliminar</button>
+                
                 <p class="card-text">${item.description}</p>
                 
                 <div class="comments-section" id="comments-${item.date || Date.now()}">
@@ -26,6 +26,7 @@ function addItem(item) {
                     <div class="comments-list"></div>
                     <textarea class="form-control" placeholder="Escribe un comentario..." rows="2"></textarea>
                     <a href="#" class="btn btn-primary mt-2" onclick="addComment('${item.date || Date.now()}')">Comentar</a>
+                    <button class="btn btn-danger mt-2" onclick="removeRecipe('${item.name}')">Eliminar Publicacion</button>
                 </div>
             </div>
         </div>
