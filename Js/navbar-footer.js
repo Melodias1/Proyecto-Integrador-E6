@@ -102,9 +102,7 @@ if(localStorage.getItem('usuarioLoged')!=null){
             <li class="nav-item">
                 <a class="nav-link active" href="${linkBandeja}">${bandeja}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="${linkIniciarSesion}">${iniciarSesion} </a>
-            </li>
+            
             
             
             

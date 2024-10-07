@@ -166,7 +166,7 @@ let usuariosDb=[{nombre:'Francisco',
     email:'jessicaV@domain.com',
     pass:'contraseña321'
 }]
-console.log(usuariosDb);
+
 localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb))
 
 //===========funcion para borrar alertas=============
