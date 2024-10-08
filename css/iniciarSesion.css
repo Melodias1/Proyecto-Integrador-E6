@@ -10,15 +10,21 @@
     height: auto;
 }
 
-h1{
-    font-style: italic;
-    font-weight: bolder ;
+h2 {
+    font-family: "Poppins", sans-serif;
+    color: var(--text-color);
+    text-align: center;
     border-bottom: 10px solid #FF900D;
+    border-radius: 5px;
     display: inline-block;
 }
 
-body{
-    text-align: center;
+#registrationForm{
+    font-family: "Poppins", sans-serif;
+}
+
+#loginForm{
+    font-family: "Poppins", sans-serif;
 }
 
 

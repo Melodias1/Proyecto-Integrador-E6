@@ -35,10 +35,19 @@ h1{
     font-style: normal;
     color: var(--text-color);
     text-align: center;
-    border-bottom: 10px solid #FF900D;
     border-radius: 5px;
     width: fit-content;
     display: inline-block;
+}
+
+#bienvenida{
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 18px;
+    background-color: var(--bg-color);
+    text-align: justify;
+    max-width: 600px; 
 }
 
 #carouselExampleAutoplaying {

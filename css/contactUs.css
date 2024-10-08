@@ -10,6 +10,29 @@
     height: auto;
 }
 
+h1 {
+    font-family: "Poppins", sans-serif;
+    color: var(--text-color);
+    text-align: center;
+    border-bottom: 10px solid #FF900D;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#instrucciones{
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 18px;
+    background-color: var(--bg-color);
+    text-align: justify;
+    max-width: 600px; 
+}
+
+#contactUsForm{
+    font-family: "Poppins", sans-serif;
+}
+
 .error-messagetext-danger {
     color: red;
     font-size: 0.875rem; 
