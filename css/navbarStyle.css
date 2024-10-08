@@ -1,10 +1,17 @@
 .navbar-container {
     background-color: #FF900D;
 }
+.navbar-container .nav-link {
+    color: #ecf0f1 !important;
+}
 
 .navbar-brand img {
-    width: 250px;
+    width: 150px;
 
+}
+
+.nav-link {
+    font-size: 1.5rem; /* Aumenta el tamaño de las letras en la navbar */
 }
 
 .nav-link:hover { 

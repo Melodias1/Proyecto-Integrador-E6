@@ -17,16 +17,20 @@
     
     <div class="container bg-white">
         <div class="row justify-content-center">
-            <h1 id="title">Contáctanos</h1>
+            <div>
+            <h1 style="border-bottom:10px solid #FF900D ; border-radius: 5px; width: fit-content; display: inline-block;" id="title">Contáctanos</h1>
+            </div>
         <br>
-            <h3 id="subtitle" class="mb-4">En caso de querer contactar con el equipo de soporte, puede dejar sus datos en el siguiente formulario y nuestro equipo se pondrá en contacto con usted.</h3>
+        <div id="instrucciones">
+            <p class="mb-4">En caso de querer contactar con el equipo de soporte, puede dejar sus datos en el siguiente formulario y nuestro equipo se pondrá en contacto con usted.</p>
+        </div>
         <br>
     <div class="row">
         <div class="col-md-4">
             <img src="../assets/gato.png" alt="gato" class="img-fluid">
         </div>
         <div class="col-md-8">
-            <form class="needs-validation col-md-6" novalidate>
+            <form class="needs-validation col-md-6" id="contactUsForm" novalidate>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control custom-input" id="Nombre" placeholder="Ingresa tu nombre" autocomplete="family-name">
                     <label for="Nombre">Nombre</label>

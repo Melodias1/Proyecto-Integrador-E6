@@ -12,6 +12,13 @@ footer{
     margin-top: 50px;
 }
 
+.footer-title {
+    font-size: 2rem; /* Aumenta el tamaño de las letras en el footer */
+}
+
+.footer-title:hover { 
+    text-decoration: underline white 3px ; 
+}
 
 #ulc1, #ulc2, #ulc3 {
     list-style: none;
@@ -26,6 +33,11 @@ li {
 a{
     color: #ecf0f1;
     text-decoration: none;
+    font-size: 1.2rem; 
+}
+
+a:hover { 
+    text-decoration: underline white 2px ; 
 }
 
 h5{
