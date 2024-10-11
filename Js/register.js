@@ -160,7 +160,9 @@ function storeData(){
  }
 // =================Creacion de base de datos de usuarios para el login========
 //array de usuarios
-let usuariosDb=[{nombre:'Francisco',
+let usuariosDb=[
+{
+    nombre:'Francisco',
     apellido:'Martinez',
     email:'franciscoM@domain.com',
     pass:'contraseña123'
