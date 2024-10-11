@@ -43,7 +43,8 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
             name: tituloText.value,
             comments: [],
             userFirstName:nameLog ,
-            userLastName: lastNameLog
+            userLastName: lastNameLog,
+            commentarios:""
         };
 
         let publications = JSON.parse(localStorage.getItem('publicationData')) || [];

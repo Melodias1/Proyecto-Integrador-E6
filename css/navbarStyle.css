@@ -21,5 +21,10 @@
     background-size: contain;
     border: none;
     }
+#btnExit:hover{
+    width:32px;
+    height:34px;
+    
+}    
     
    
