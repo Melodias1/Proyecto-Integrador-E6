@@ -24,9 +24,9 @@ function addItem(item) {
                 <div class="comments-section" id="comments-${item.date || Date.now()}">
                     <h6>Comentarios:</h6>
                     <div class="comments-list"></div>
-                    <textarea class="form-control" placeholder="Escribe un comentario..." rows="2"></textarea>
-                    <a href="#" class="btn btn-primary mt-2" onclick="addComment('${item.date || Date.now()}')">Comentar</a>
-                    <button class="btn btn-danger mt-2" onclick="removeRecipe('${item.name}')">Eliminar Publicacion</button>
+                    <textarea class="form-control" placeholder="Escribe un comentario..." rows="2" style="resize:none;"></textarea>
+                    <a href="#" class="btn btn-primary mt-2" onclick="addComment(event,'${item.date || Date.now()}')" style="width 500px">Hacer Comentario</a>
+                    <button class="btn btn-danger mt-2" onclick="removeRecipe(event,'${item.name}')">Eliminar Publicacion</button>
                 </div>
             </div>
         </div>
@@ -36,8 +36,17 @@ function addItem(item) {
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.insertAdjacentHTML("afterbegin", itemHTML);
 }
+// borrar comentarios del Json de la publicacion
+function removeFromLocalStorage(comentTxt){
+    let comentario
+}
+// agregar comentarios al Json de la publicacion
+function agregarAlJson(comentTxt){
+    let JsonCard = localStorage.getItem('publicationData')
+}
 
-function removeRecipe(name) {
+function removeRecipe(event,name) {
+    event.preventDefault();
     const itemsContainer = document.getElementById("list-items");
     const cards = itemsContainer.getElementsByClassName('card-title');
     for (let card of cards) {
@@ -46,10 +55,15 @@ function removeRecipe(name) {
             break;
         }
     }
-    removeFromLocalStorage(name);
+    //removeFromLocalStorage(name);
 }
 
-function addComment(date) {
+function removeFromLocalStorage(name){
+
+}
+
+function addComment(event,date) {
+    event.preventDefault();
     const commentTextarea = document.querySelector(`#comments-${date} textarea`);
     const commentText = commentTextarea.value;
 
@@ -72,7 +86,8 @@ function addComment(date) {
         }
 
         commentTextarea.value = ''; // Limpiar el textarea
-        updateTrendingRecipes(); // Actualiza las tendencias
+        // updateTrendingRecipes(); // Actualiza las tendencias
+        agregarAlJson();
     }
 }
 
@@ -116,14 +131,16 @@ const initialRecipes = [
         'img': 'https://www.gs1india.org/media/Juice_pack.jpg',
         'description': 'Orange and Apple juice fresh and delicious',
         'userFirstName':'Ricardo' ,
-        'userLastName': 'GuarniApp'
+        'userLastName': 'GuarniApp',
+        'comentarios':''
     },
     {
         'name': 'Tayto',
         'img': 'https://www.irishtimes.com/polopoly_fs/1.4078148!/image/image.jpg',
         'description': 'Cheese & Onion Chips',
          'userFirstName':'Jesus' ,
-        'userLastName': 'GuarniApp'
+        'userLastName': 'GuarniApp',
+        'comentarios':''
     }
     // Agrega más recetas aquí...
 ];
