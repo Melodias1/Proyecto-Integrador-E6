@@ -3,15 +3,20 @@ const userText = document.getElementById('exampleFormControlTextarea1');
 const tituloText = document.getElementById('tituloText');
 const errorSpanText = document.getElementById('textAreaError');
 const errorSpanTitle = document.getElementById('fileError');
+const tipoCocinaSelect = document.getElementById('tipoCocina'); // Selecciona el dropdown
 let nameLog="";
 let lastNameLog="";
+
 if(localStorage.getItem('usuarioLoged')!=null){
      usuarioLoged= JSON.parse(localStorage.getItem('usuarioLoged'));
      nameLog=usuarioLoged.nombre;
      lastNameLog=usuarioLoged.apellido
 }
+
 document.getElementById("btnPublicar").addEventListener("click", function(event) {
     event.preventDefault();
+
+    const tipoCocina = document.querySelector('select').value;
 
     // Limpiar mensajes de error previos
     errorSpanText.style.display = "none";
@@ -41,6 +46,7 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
             img: imageUrl,
             description: userText.value,
             name: tituloText.value,
+            cuisine: tipoCocina, 
             comments: [],
             userFirstName:nameLog ,
             userLastName: lastNameLog,

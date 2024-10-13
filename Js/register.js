@@ -6,7 +6,9 @@ let passwordJS= document.getElementById("password")
 let confPassJS= document.getElementById("confirmPassword");
 let btnLogin = document.getElementById("btnLogin");
 let usuarioLoginValid= document.querySelector('#loginEmail');
-let passLoginValid= document.querySelector('#loginPassword')
+let passLoginValid= document.querySelector('#loginPassword');
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.getElementById('registrationForm');
     const loginForm = document.getElementById('loginForm');
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button: "Revisar campos",
             });
         } else {
-                
+            storeData();
             swal({
                 title: "¡Registro exitoso!",
                 text: "Su cuenta ha sido registrada con éxito.",
@@ -32,12 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 button: "OK",
                 
             }).then(() => {
-                storeData();
-            //    fullName.value="";
-            //    emailJS.value="";
-            //    phoneJS.value="";
-            //    passwordJS.value="";
-            //    confPassJS.value="";
+                fullName.value="";
+                emailJS.value="";
+                phoneJS.value="";
+                passwordJS.value="";
+                confPassJS.value="";
             window.location.reload();// recarga ventana
             });
         }
@@ -147,58 +148,55 @@ document.addEventListener('DOMContentLoaded', () => {
         errorSpan.textContent = '';
         errorSpan.classList.remove('text-danger');
     }
-});
-function storeData(){
-    let usuarioData= {
-        nombre: fullName.value,
-        phone:phoneJS.value,
-        email:emailJS.value,
-        password:passwordJS.value
 
-    }
-    localStorage.setItem("usuarioData",JSON.stringify(usuarioData))
+function storeData(){
+
+    const fullName = document.getElementById("fullName").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("regEmail").value;
+    const password = document.getElementById("password").value;
+
+    let newUser= {
+        nombre: fullName,
+        phone:phone,
+        email:email,
+        password:password
+    };
+
+    let usersDb = JSON.parse(localStorage.getItem('usuariosDb')) || [];
+    usersDb.push(newUser); // Agregar el nuevo usuario
+    localStorage.setItem("usuariosDb",JSON.stringify(usersDb))// Guardar de nuevo
+//    console.log('Usuarios guardados:', usersDb); // Verifica que se guarden correctamente
  }
 // =================Creacion de base de datos de usuarios para el login========
 //array de usuarios
-let usuariosDb=[
-{
-    nombre:'Francisco',
-    apellido:'Martinez',
-    email:'franciscoM@domain.com',
-    pass:'contraseña123'
-},{nombre:'Ricardo',
-    apellido:'Perez',
-    email:'ricardoP@domain.com',
-    pass:'contraseña456'
-},{nombre:'Jesus',
-    apellido:'Rodriguez',
-    email:'jesusR@domain.com',
-    pass:'contraseña789'
-},{nombre:'Jessica',
-    apellido:'Vega',
-    email:'jessicaV@domain.com',
-    pass:'contraseña321'
-}]
+//let usuariosDb=[
+//{
+//    nombre:'Francisco',
+//    apellido:'Martinez',
+//    email:'franciscoM@domain.com',
+//    password:'contraseña123'
+//},{nombre:'Ricardo',
+//    apellido:'Perez',
+//    email:'ricardoP@domain.com',
+//    password:'contraseña456'
+//},{nombre:'Jesus',
+//    apellido:'Rodriguez',
+//    email:'jesusR@domain.com',
+//    password:'contraseña789'
+//},{nombre:'Jessica',
+//    apellido:'Vega',
+//    email:'jessicaV@domain.com',
+//    password:'contraseña321'
+//}]
 
-localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb))
-
-//===========funcion para borrar alertas=============
-function borrarError(input,message) {
-    const errorSpan = document.getElementById(input.id + 'Error');
-    errorSpan.textContent = message;
-    errorSpan.classList.remove('text-danger');
-}
-//===========funcion para mostrar error=============
-function mostrarError(input, message) {
-    const errorSpan = document.getElementById(input.id + 'Error');
-    errorSpan.textContent = message;
-    errorSpan.classList.add('text-danger');
-}
+//localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb));
 
 //==========creacion de funcion para validar usuario y contraseña en local=============
 //boton de validacion de formulario inicio de sesion
 btnLogin.addEventListener("click",(event)=>{
     event.preventDefault();
+    console.log('Botón de inicio de sesión clicado');
     //variable bandera
     let usuarioEcnontrado=false;
 //traer lista de usuarios
@@ -207,8 +205,10 @@ btnLogin.addEventListener("click",(event)=>{
      borrarError(document.getElementById('loginEmail'),'Email (nombre de usuario)');
      borrarError(document.getElementById('loginPassword'),'Contraseña');
    // ciclo foreach donde se compara el correo y la contraseña
+//   console.log('Datos de inicio:', usuarioLoginValid.value, passLoginValid.value); // Verifica qué datos se están ingresando
+
     usersLocalDb.forEach(element => {
-        if (usuarioLoginValid.value===element.email && passLoginValid.value===element.pass) {
+        if (usuarioLoginValid.value===element.email && passLoginValid.value===element.password) {
             usuarioEcnontrado=true
             swal({
                 title: "Inicio exitoso!",
@@ -237,7 +237,20 @@ btnLogin.addEventListener("click",(event)=>{
         mostrarError(document.getElementById('loginEmail'),'Usuario o contraseña no coinciden');
     }
 
+});
 
 
+//===========funcion para borrar alertas=============
+function borrarError(input,message) {
+    const errorSpan = document.getElementById(input.id + 'Error');
+    errorSpan.textContent = message;
+    errorSpan.classList.remove('text-danger');
+}
+//===========funcion para mostrar error=============
+function mostrarError(input, message) {
+    const errorSpan = document.getElementById(input.id + 'Error');
+    errorSpan.textContent = message;
+    errorSpan.classList.add('text-danger');
+}
 
 });

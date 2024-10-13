@@ -39,17 +39,29 @@
                                         
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Título de la receta</span>
-                        <input type="text" class="form-control" id="tituloText">
+                        <input type="text" class="form-control" id="tituloText" required>
                         <label id="fileError" class="text-danger" style="display: none;"></label>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default"><button id="upload_widget" class="btn btn-primary mb-3">Subir imagen</button></span>
-                        <input type="text" class="form-control" id="linkImg" placeholder="">
+                        <input type="text" class="form-control" id="linkImg" placeholder="" readonly>
                         
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí...</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize: none;"></textarea>
+                        <label for="tipoCocina" class="form-label">Seleccionar tipo de cocina</label>
+                        <select class="form-select" id="tipoCocina" onchange="assignCuisine(event)">
+                        <option value="Cocina tradicional">Cocina tradicional</option>
+                        <option value="Nouvelle cuisine">Nouvelle cuisine</option>
+                        <option value="Cocina creativa">Cocina creativa</option>
+                        <option value="Alta cocina">Alta cocina</option>
+                        <option value="Cocina fusión">Cocina fusión</option>
+                        <option value="Cocina de vanguardia">Cocina de vanguardia</option>
+                        <option value="Cocina de autor">Cocina de autor</option>
+                    </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Describe aquí la preparación...</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize: none;" required></textarea>
                         <label id="textAreaError" class="text-danger" style="display: none;"></label>
                     </div>
                 
@@ -64,6 +76,8 @@
             <div id="list-items" class="row justify-content-center"></div>
         </div>
     </div>  
+    
+    <div class="footerBody"></div>
     
     <!--Script para SweetAlert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
