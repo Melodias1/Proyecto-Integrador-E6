@@ -3,7 +3,6 @@ const userText = document.getElementById('exampleFormControlTextarea1');
 const tituloText = document.getElementById('tituloText');
 const errorSpanText = document.getElementById('textAreaError');
 const errorSpanTitle = document.getElementById('fileError');
-const tipoCocinaSelect = document.getElementById('tipoCocina'); // Selecciona el dropdown
 let nameLog="";
 let lastNameLog="";
 
@@ -13,6 +12,16 @@ if(localStorage.getItem('usuarioLoged')!=null){
      lastNameLog=usuarioLoged.apellido
 }
 
+// Función para manejar el cambio en el select de tipo de cocina
+function assignCuisine(event) {
+    const selectedCuisine = event.target.value; // Obtiene el valor seleccionado
+    console.log(`Tipo de cocina seleccionado: ${selectedCuisine}`);
+    // Aquí puedes agregar más lógica si lo deseas
+}
+
+// Añade el evento onchange en el select
+const tipoCocinaSelect = document.getElementById('tipoCocina');
+tipoCocinaSelect.addEventListener('change', assignCuisine);
 document.getElementById("btnPublicar").addEventListener("click", function(event) {
     event.preventDefault();
 

@@ -2,13 +2,49 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    const filterCocinaSelect = document.getElementById('filterCocina');
+    filterCocinaSelect.addEventListener('change', filterPublications);
+    
     loadPublications();
 });
+
+function filterPublications() {
+    const selectedCuisine = document.getElementById('filterCocina').value;
+    const allPublications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    const itemsContainer = document.getElementById("list-items");
+    
+    // Limpiar el contenido anterior
+    itemsContainer.innerHTML = ""; 
+
+    // Filtrar publicaciones
+    const filteredPublications = selectedCuisine 
+        ? allPublications.filter(pub => pub.cuisine === selectedCuisine)
+        : allPublications; // Si no hay selección, mostrar todas
+
+    filteredPublications.forEach(pub => {
+        addItem(pub); // Agregar cada publicación filtrada
+    });
+}
+
+
+function loadPublications() {
+    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    const itemsContainer = document.getElementById("list-items");
+
+    // Limpiar el contenido anterior
+    itemsContainer.innerHTML = "";
+
+    if (Array.isArray(publications)) {
+        publications.forEach(publication => {
+            addItem(publication); // Cargar todas las publicaciones al inicio
+        });
+    }
+}
 
 function addItem(item) {
     if (!item.comments) {
         item.comments = [];
-    }//if comments
+    }
 
     const itemHTML = `
     <div class="col-sm-12">
@@ -20,7 +56,7 @@ function addItem(item) {
             <div class="card-body col-sm">
                 <h5 class="card-title">${item.name}</h5>
                 <p class="card-text">${item.description}</p>
-                <p class="card-text"><small class="text-muted">Tipo de cocina: ${item.cuisine}</small></p> <!-- Mostrar tipo de cocina -->
+                <p class="card-text"><small class="text-muted">Tipo de cocina: ${item.cuisine}</small></p>
                 <div class="comments-section" id="comments-${item.date || Date.now()}">
                     <h6>Comentarios:</h6>
                     <div class="comments-list" style="max-height: 150px; overflow-y: auto;"></div>
@@ -35,7 +71,6 @@ function addItem(item) {
 
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.insertAdjacentHTML("afterbegin", itemHTML);
-
 }//function addItem
 
 
@@ -94,16 +129,6 @@ function addComment(event,date) {
     }
 }
 
-
-function loadPublications() {
-    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
-    if (Array.isArray(publications)) {
-        publications.forEach(publication => {
-            addItem(publication);
-        });
-    }
-    updateAssignedCuisines(); // Actualizar lista de cocinas asignadas al cargar
-}
 
 function updateAssignedCuisines() {
     const assignedCuisinesContainer = document.getElementById('assigned-cuisines');
