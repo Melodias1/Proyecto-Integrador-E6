@@ -1,21 +1,35 @@
 .navbar-container {
     background-color: #FF900D;
+    margin-bottom: 100px
 }
 .navbar-container .nav-link {
     color: #ecf0f1 !important;
 }
 
 .navbar-brand img {
-    width: 150px;
-
+    width: 120px;
+    height: 100px;
+    margin-left: 50px;
 }
 
 .nav-link {
-    font-size: 1.5rem; /* Aumenta el tamaño de las letras en la navbar */
+    font-size: 1.3rem; /* Aumenta el tamaño de las letras en la navbar */
+    margin: 10px;
 }
 
 .nav-link:hover { 
     text-decoration: underline white 3px ; 
+}
+
+.bi-person {
+    width: 32px; /* Ajusta según sea necesario */
+    height: 32px; /* Ajusta según sea necesario */
+}
+
+span {
+    margin-left: 8px; /* Espacio entre el ícono y el mensaje */
+    font-size: 1.3rem; /* Ajusta el tamaño del texto */
+    color: #333; /* Color del texto, ajusta según tus preferencias */
 }
 
 #btnExit{
@@ -26,7 +40,9 @@
     background:url('/assets/box-arrow-right.svg' ) no-repeat;
     background-size: contain;
     border: none;
+    margin-right: 20px;
     }
+    
 #btnExit:hover{
     width:32px;
     height:34px;
