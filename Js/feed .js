@@ -2,29 +2,70 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    const filterCocinaSelect = document.getElementById('filterCocina');
+    filterCocinaSelect.addEventListener('change', filterPublications);
+    
     loadPublications();
 });
+
+function filterPublications() {
+    const selectedCuisine = document.getElementById('filterCocina').value;
+    const allPublications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    const itemsContainer = document.getElementById("list-items");
+    
+    // Limpiar el contenido anterior
+    itemsContainer.innerHTML = ""; 
+
+    // Filtrar publicaciones
+    const filteredPublications = selectedCuisine 
+        ? allPublications.filter(pub => pub.cuisine === selectedCuisine)
+        : allPublications; // Si no hay selección, mostrar todas
+
+    filteredPublications.forEach(pub => {
+        addItem(pub); // Agregar cada publicación filtrada
+    });
+}
+
+
+function loadPublications() {
+    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    const itemsContainer = document.getElementById("list-items");
+
+    // Limpiar el contenido anterior
+    itemsContainer.innerHTML = "";
+
+    if (Array.isArray(publications)) {
+        publications.forEach(publication => {
+            addItem(publication); // Cargar todas las publicaciones al inicio
+        });
+    }
+}
 
 function addItem(item) {
     if (!item.comments) {
         item.comments = [];
-    }//if comments
+    }
 
     const itemHTML = `
     <div class="col-sm-12">
         <div class="card mb-5 col-sm" style="max-width: 28em">
             <div class="card-body col-sm">
+            <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+</svg>
+            </div>
                 <h5 class="card-title">${item.userFirstName} ${item.userLastName}</h5>
             </div>
             <img src="${item.img}" class="card-img-top" alt="image" style="max-height:14em;">
             <div class="card-body col-sm">
                 <h5 class="card-title">${item.name}</h5>
                 <p class="card-text">${item.description}</p>
-                <p class="card-text"><small class="text-muted">Tipo de cocina: ${item.cuisine}</small></p> <!-- Mostrar tipo de cocina -->
+                <p class="card-text"><small class="text-muted">Tipo de cocina: ${item.cuisine}</small></p>
                 <div class="comments-section" id="comments-${item.date || Date.now()}">
                     <h6>Comentarios:</h6>
                     <div class="comments-list" style="max-height: 150px; overflow-y: auto;"></div>
-                    <textarea class="form-control" placeholder="Escribe un comentario..." rows="2" style="resize:none;"></textarea>
+                    <textarea class="form-control" placeholder="Escribe un comentario..." rows="2" style="resize:none"></textarea>
                     <a href="#" class="btn btn-primary mt-2" onclick="addComment(event,'${item.date || Date.now()}')">Hacer Comentario</a>
                     <button class="btn btn-danger mt-2" onclick="removeRecipe(event,'${item.name}')">Eliminar Publicación</button>
                 </div>
@@ -35,7 +76,6 @@ function addItem(item) {
 
     const itemsContainer = document.getElementById("list-items");
     itemsContainer.insertAdjacentHTML("afterbegin", itemHTML);
-
 }//function addItem
 
 
@@ -94,16 +134,6 @@ function addComment(event,date) {
     }
 }
 
-
-function loadPublications() {
-    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
-    if (Array.isArray(publications)) {
-        publications.forEach(publication => {
-            addItem(publication);
-        });
-    }
-    updateAssignedCuisines(); // Actualizar lista de cocinas asignadas al cargar
-}
 
 function updateAssignedCuisines() {
     const assignedCuisinesContainer = document.getElementById('assigned-cuisines');

@@ -15,6 +15,23 @@
 <body>
 
     <div class="container">
+    <!-- Dropdown para filtrar por tipo de cocina -->
+    <div class="row mb-3">
+        <label for="filterCocina">Filtrar por tipo de cocina:</label>
+        <select id="filterCocina" class="form-select">
+            <option value="">Todos</option>
+            <option value="Cocina tradicional">Cocina tradicional</option>
+            <option value="Nouvelle cuisine">Nouvelle cuisine</option>
+            <option value="Cocina creativa">Cocina creativa</option>
+            <option value="Alta cocina">Alta cocina</option>
+            <option value="Cocina fusión">Cocina fusión</option>
+            <option value="Cocina de vanguardia">Cocina de vanguardia</option>
+            <option value="Cocina de autor">Cocina de autor</option>
+        </select>
+    </div>
+    </div>
+    
+    <div class="container">
         <h1 class="my-4">Recetas</h1>
         <div class="row" id="list-items">
             <div class="col-lg-4 d-flex justify-content-center align-items-center">
