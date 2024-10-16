@@ -6,13 +6,9 @@
 }
 
 .navbar-brand img {
-<<<<<<< HEAD
     width: 4em;
-    height: 2em;
-=======
-    width: 150px;
->>>>>>> racv
-
+    height: 4em;
+    width: 105px;
 }
 
 .nav-link {
