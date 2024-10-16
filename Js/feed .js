@@ -1,4 +1,9 @@
-
+function initializePublications() {
+    const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    if (publications.length === 0) {
+        localStorage.setItem('publicationData', JSON.stringify(initialRecipes));
+    }
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -6,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filterCocinaSelect) {
         filterCocinaSelect.addEventListener('change', filterPublications);
     }
+    initializePublications(); 
     loadPublications();
 });
 
