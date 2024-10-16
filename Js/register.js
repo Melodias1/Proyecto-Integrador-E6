@@ -168,29 +168,6 @@ function storeData(){
     localStorage.setItem("usuariosDb",JSON.stringify(usersDb))// Guardar de nuevo
 //    console.log('Usuarios guardados:', usersDb); // Verifica que se guarden correctamente
  }
-// =================Creacion de base de datos de usuarios para el login========
-//array de usuarios
-//let usuariosDb=[
-//{
-//    nombre:'Francisco',
-//    apellido:'Martinez',
-//    email:'franciscoM@domain.com',
-//    password:'contraseña123'
-//},{nombre:'Ricardo',
-//    apellido:'Perez',
-//    email:'ricardoP@domain.com',
-//    password:'contraseña456'
-//},{nombre:'Jesus',
-//    apellido:'Rodriguez',
-//    email:'jesusR@domain.com',
-//    password:'contraseña789'
-//},{nombre:'Jessica',
-//    apellido:'Vega',
-//    email:'jessicaV@domain.com',
-//    password:'contraseña321'
-//}]
-
-//localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb));
 
 //==========creacion de funcion para validar usuario y contraseña en local=============
 //boton de validacion de formulario inicio de sesion
