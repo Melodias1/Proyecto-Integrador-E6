@@ -13,19 +13,24 @@ h1 {
   
 }
 
-.card{
-    margin: auto;
+.card {
+    margin: 20px 0; /* Margen superior e inferior para separación */
     display: block;
+    text-align: left; /* Alinear texto a la izquierda */
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
+
 .card-body{
     font-family: "Poppins", sans-serif;
     background-color: #FF900D;
     color: #ecf0f1;
+    align-items: center;
 }
 
 .card:hover {
     scale: .95;
-    box-shadow:0 0 20px #DEC54E;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .div-img-card{
@@ -53,48 +58,58 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s, transform 0.2s, opacity 0.3s;
 }
+
 .btn-add:hover {
     background-color: #0d05f4;
     transform: scale(1.1);
     border: 2px solid black;
     opacity: 0.8;
 }
-/* 
-.h3{
-    text-align: center;
-    font-size: 30px;
-    display: block;
-} */
 
-/* .row{
-    text-align: center;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-} */
+/* Estilo para el contenedor del select */
+.mb-3 {
+    margin-bottom: 1rem; /* Espaciado inferior */
+}
 
+/* Estilo del select */
+#filterCocina {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px; /* Tamaño de fuente */
+    color: #333; /* Color de texto */
+    padding: 12px; /* Espaciado interno */
+    border: 2px solid #FF900D; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+    transition: border-color 0.3s; /* Transición para el borde */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
 
+/* Efecto al enfocar el select */
+#filterCocina:focus {
+    border-color: #0419fa; /* Cambia el color del borde al enfocar */
+    outline: none; /* Quita el contorno por defecto */
+    box-shadow: 0 0 5px rgba(4, 25, 250, 0.5); /* Sombra al enfocar */
+}
 
-/* .d-grid{
-    margin-top: 20px;
-    width: 200px;
-    height: 50px;
-    display: inside;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-} */
+/* Estilo de las opciones del select */
+#filterCocina option {
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Color de texto */
+}
 
-/* 
-.textareas{
-    width: 300px;
-    height: 200px;
-    resize: vertical;
-    margin-top: 20px;
-} */
+.card {
+    border: none; /* Eliminar bordes predeterminados */
+}
 
-/*.btn-primary mt-2 {
-    text-align: auto;
-    background-color: #FF900D;
-    font-weight: bold;
-}*/
+.card-title {
+    font-size: 1.5rem; /* O el tamaño que prefieras */
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+.comments-section {
+    border-top: 1px solid #e0e0e0; /* Línea de separación para los comentarios */
+    padding-top: 10px; /* Espacio superior */
+}

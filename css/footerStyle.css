@@ -9,7 +9,7 @@ footer{
     text-align: center;
     align-items: center;
     clear: both;
-    margin-top: 50px;
+    margin-top: 300px;
 }
 
 .footer-title {
@@ -48,6 +48,7 @@ h5{
 .footer-logo {
     text-align: center; /* Centra el logo */
     margin-top: 20px; /* Espacio superior */
+    margin-bottom: 10px;
 }
 
 .github-logo {

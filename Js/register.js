@@ -6,7 +6,9 @@ let passwordJS= document.getElementById("password")
 let confPassJS= document.getElementById("confirmPassword");
 let btnLogin = document.getElementById("btnLogin");
 let usuarioLoginValid= document.querySelector('#loginEmail');
-let passLoginValid= document.querySelector('#loginPassword')
+let passLoginValid= document.querySelector('#loginPassword');
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.getElementById('registrationForm');
     const loginForm = document.getElementById('loginForm');
@@ -165,7 +167,30 @@ function storeData(){
     usersDb.push(newUser); // Agregar el nuevo usuario
     localStorage.setItem("usuariosDb",JSON.stringify(usersDb))// Guardar de nuevo
 //    console.log('Usuarios guardados:', usersDb); // Verifica que se guarden correctamente
-}
+ }
+// =================Creacion de base de datos de usuarios para el login========
+//array de usuarios
+//let usuariosDb=[
+//{
+//    nombre:'Francisco',
+//    apellido:'Martinez',
+//    email:'franciscoM@domain.com',
+//    password:'contraseña123'
+//},{nombre:'Ricardo',
+//    apellido:'Perez',
+//    email:'ricardoP@domain.com',
+//    password:'contraseña456'
+//},{nombre:'Jesus',
+//    apellido:'Rodriguez',
+//    email:'jesusR@domain.com',
+//    password:'contraseña789'
+//},{nombre:'Jessica',
+//    apellido:'Vega',
+//    email:'jessicaV@domain.com',
+//    password:'contraseña321'
+//}]
+
+//localStorage.setItem('usuariosDb',JSON.stringify(usuariosDb));
 
 //==========creacion de funcion para validar usuario y contraseña en local=============
 //boton de validacion de formulario inicio de sesion
@@ -180,8 +205,10 @@ btnLogin.addEventListener("click",(event)=>{
      borrarError(document.getElementById('loginEmail'),'Email (nombre de usuario)');
      borrarError(document.getElementById('loginPassword'),'Contraseña');
    // ciclo foreach donde se compara el correo y la contraseña
+//   console.log('Datos de inicio:', usuarioLoginValid.value, passLoginValid.value); // Verifica qué datos se están ingresando
+
     usersLocalDb.forEach(element => {
-        if (usuarioLoginValid.value===element.email && passLoginValid.value===element.pass) {
+        if (usuarioLoginValid.value===element.email && passLoginValid.value===element.password) {
             usuarioEcnontrado=true
             swal({
                 title: "Inicio exitoso!",
