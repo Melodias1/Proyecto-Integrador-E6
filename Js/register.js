@@ -165,7 +165,7 @@ function storeData(){
     usersDb.push(newUser); // Agregar el nuevo usuario
     localStorage.setItem("usuariosDb",JSON.stringify(usersDb))// Guardar de nuevo
 //    console.log('Usuarios guardados:', usersDb); // Verifica que se guarden correctamente
- }
+}
 
 //==========creacion de funcion para validar usuario y contraseña en local=============
 //boton de validacion de formulario inicio de sesion
