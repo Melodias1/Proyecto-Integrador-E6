@@ -76,15 +76,16 @@ window.addEventListener('load', function() {
 
 // validacion si hay un usuario logueado, de haberlo carga la primera navbar, de no haberlo carga la segunda
 if(localStorage.getItem('usuarioLoged')!=null){
-    const userLogged = JSON.parse(localStorage.getItem('usuarioLoged'));
-    const userName = userLogged.nombre;
-
      navBar=`<nav class="navbar navbar-expand-md bg-white ">
         <div class="container-fluid navbar-container">
         
         <a class="navbar-brand" href="#">
             <!--GuarniApp-->
-            <img src="../assets/logo_guarniapp-removebg-preview.png" alt="GuarniApp Logo"> 
+<<<<<<< HEAD
+            <img src="../assets/logo_guarniapp.png" alt="GuarniApp Logo"> 
+=======
+            <img src="../assets/logo_guarniapp-removebg-preview.png" alt="GuarniApp Logo"> jdj
+>>>>>>> racv
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -106,12 +107,8 @@ if(localStorage.getItem('usuarioLoged')!=null){
                 <a class="nav-link active" href="${linkBandeja}">${bandeja}</a>
             </li>
             
-            <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-</svg>
-            <span>Bienvenido, ${userName}</span>
-            </div>
+            
+            
             
             </ul>
         </div>

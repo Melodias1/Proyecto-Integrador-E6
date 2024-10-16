@@ -6,9 +6,7 @@ let passwordJS= document.getElementById("password")
 let confPassJS= document.getElementById("confirmPassword");
 let btnLogin = document.getElementById("btnLogin");
 let usuarioLoginValid= document.querySelector('#loginEmail');
-let passLoginValid= document.querySelector('#loginPassword');
-
-
+let passLoginValid= document.querySelector('#loginPassword')
 document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.getElementById('registrationForm');
     const loginForm = document.getElementById('loginForm');
@@ -182,10 +180,8 @@ btnLogin.addEventListener("click",(event)=>{
      borrarError(document.getElementById('loginEmail'),'Email (nombre de usuario)');
      borrarError(document.getElementById('loginPassword'),'Contraseña');
    // ciclo foreach donde se compara el correo y la contraseña
-//   console.log('Datos de inicio:', usuarioLoginValid.value, passLoginValid.value); // Verifica qué datos se están ingresando
-
     usersLocalDb.forEach(element => {
-        if (usuarioLoginValid.value===element.email && passLoginValid.value===element.password) {
+        if (usuarioLoginValid.value===element.email && passLoginValid.value===element.pass) {
             usuarioEcnontrado=true
             swal({
                 title: "Inicio exitoso!",
