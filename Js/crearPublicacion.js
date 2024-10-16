@@ -16,12 +16,12 @@ if(localStorage.getItem('usuarioLoged')!=null){
 function assignCuisine(event) {
     const selectedCuisine = event.target.value; // Obtiene el valor seleccionado
     console.log(`Tipo de cocina seleccionado: ${selectedCuisine}`);
-    // Aquí puedes agregar más lógica si lo deseas
 }
 
 // Añade el evento onchange en el select
 const tipoCocinaSelect = document.getElementById('tipoCocina');
 tipoCocinaSelect.addEventListener('change', assignCuisine);
+
 document.getElementById("btnPublicar").addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -59,7 +59,7 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
             comments: [],
             userFirstName:nameLog ,
             userLastName: lastNameLog,
-            commentarios:""
+            date: Date.now() // Añadir la fecha aquí
         };
 
         let publications = JSON.parse(localStorage.getItem('publicationData')) || [];
