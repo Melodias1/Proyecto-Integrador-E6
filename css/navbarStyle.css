@@ -6,8 +6,9 @@
 }
 
 .navbar-brand img {
-    width: 4em;
-    height: 4em;
+    width: 2em;
+    height: 3em;
+    object-fit: cover;
     width: 105px;
 }
 
