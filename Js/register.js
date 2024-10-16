@@ -203,7 +203,7 @@ btnLogin.addEventListener("click",(event)=>{
        // ciclo foreach donde se compara el correo y la contraseña
     
         usuariosArray.forEach(element => {
-            if (usuarioLoginValid.value===element.eamil && passLoginValid.value===element.password) {
+            if (usuarioLoginValid.value===element.email && passLoginValid.value===element.password) {
                 usuarioEcnontrado=true
                 swal({
                     title: "Inicio exitoso!",
