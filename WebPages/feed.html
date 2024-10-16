@@ -14,10 +14,10 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container my-4">
     <!-- Dropdown para filtrar por tipo de cocina -->
     <div class="row mb-3">
-        <label for="filterCocina">Filtrar por tipo de cocina:</label>
+        <label for="filterCocina" class="form-label">Filtrar por tipo de cocina:</label>
         <select id="filterCocina" class="form-select">
             <option value="">Todos</option>
             <option value="Cocina tradicional">Cocina tradicional</option>
@@ -29,19 +29,10 @@
             <option value="Cocina de autor">Cocina de autor</option>
         </select>
     </div>
-    </div>
     
-    <div class="container">
         <h1 class="my-4">Recetas</h1>
-        <div class="row" id="list-items">
-            <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                <ul class="list-group" id="assigned-cuisines">
-                    <li class="list-group-item">Cocinas Asignadas</li>
-                </ul>
-            </div>
-            </div>
-            <div class="col-lg-8 col-md-12">
-                <div>
+        <div class="row">
+            <div class="col-lg-10 col-md-12" id="publicationsContainer">
                     <!-- Aquí se añadirán las cards -->
                 </div>
             </div>
