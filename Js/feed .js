@@ -56,7 +56,7 @@ function addItem(item) {
     }
 
     const itemHTML = `
-    <div class="col-sm-12">
+    <div class="col-sm-12  ">
         <div class="card mb-5 col-sm" style="max-width: 28em">
             <div class="card-body">
                 <div class="d-flex align-items-center mb-2">
