@@ -56,8 +56,8 @@ function addItem(item) {
     }
 
     const itemHTML = `
-    <div class="col-sm-12  ">
-        <div class="card mb-5 col-sm" style="max-width: 28em">
+    <div class="col-12 d-flex justify-content-center">
+        <div class="card mb-5 col-sm" style="max-width: 28em; width: 100%">
             <div class="card-body">
                 <div class="d-flex align-items-center mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person me-2" viewBox="0 0 16 16">
