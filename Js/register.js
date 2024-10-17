@@ -151,23 +151,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function storeData(){
 
-    const fullName = document.getElementById("fullName").value;
-    const phone = document.getElementById("phone").value;
-    const email = document.getElementById("regEmail").value;
-    const password = document.getElementById("password").value;
+        const fullName = document.getElementById("fullName").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("regEmail").value;
+        const password = document.getElementById("password").value;
 
-    let newUser= {
-        nombre: fullName,
-        phone:phone,
-        email:email,
-        password:password
-    };
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-    let usersDb = JSON.parse(localStorage.getItem('usuariosDb')) || [];
-    usersDb.push(newUser); // Agregar el nuevo usuario
-    localStorage.setItem("usuariosDb",JSON.stringify(usersDb))// Guardar de nuevo
-//    console.log('Usuarios guardados:', usersDb); // Verifica que se guarden correctamente
- }
+        const raw = JSON.stringify({
+            full_name: fullName,
+            email: email, 
+            phone: phone,
+            password: password
+        });
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
+
+        fetch("http://localhost:8080/api/usuarios/", requestOptions)
+            .then((response) => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error("Error en la solicitud");
+                }
+            })
+            .then((result) => {
+                console.log(result); 
+                swal({
+                    title: "¡Registro exitoso!",
+                    text: "Su cuenta ha sido registrada con éxito.",
+                    icon: "success",
+                    button: "OK"
+                }).then(() => {
+                    fullName.value = "";
+                    emailJS.value = "";
+                    phoneJS.value = "";
+                    passwordJS.value = "";
+                    confPassJS.value = "";
+                    window.location.reload();
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                swal({
+                    title: "¡Error!",
+                    text: "Hubo un problema al registrar su cuenta. Inténtelo de nuevo.",
+                    icon: "error",
+                    button: "OK"
+                });
+            });
+
+
+        // let usersDb = JSON.parse(localStorage.getItem('usuariosDb')) || [];
+        // usersDb.push(newUser); // Agregar el nuevo usuario
+        // localStorage.setItem("usuariosDb",JSON.stringify(usersDb))// Guardar de nuevo
+        //console.log('Usuarios guardados:', usersDb); // Verifica que se guarden correctamente
+}
 
 
 //==========creacion de funcion para validar usuario y contraseña en local=============
