@@ -99,6 +99,8 @@ h1 {
 
 .card {
     border: none; /* Eliminar bordes predeterminados */
+    margin: 10px;
+    max-width: 300px;
 }
 
 .card-title {
@@ -112,4 +114,7 @@ h1 {
 .comments-section {
     border-top: 1px solid #e0e0e0; /* Línea de separación para los comentarios */
     padding-top: 10px; /* Espacio superior */
+}
+#publicationsContainer {
+    padding: 20px;
 }
