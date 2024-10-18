@@ -217,69 +217,61 @@ function storeData(){
 
 //==========creacion de funcion para validar usuario y contraseña en local=============
 //boton de validacion de formulario inicio de sesion
-btnLogin.addEventListener("click",(event)=>{
+btnLogin.addEventListener("click", (event) => {
     event.preventDefault();
     console.log('Botón de inicio de sesión clicado');
-    let usuariosArray=[]
+
+    const raw = JSON.stringify({
+        "email": usuarioLoginValid.value,  
+        "password": passLoginValid.value
+    });
+
     const requestOptions = {
-        method: "GET",
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: raw,
         redirect: "follow"
-      };
-      //hace la solicitud de usuarios almacenados en db
-      fetch("http://localhost:8080/api/usuarios/", requestOptions)
-        .then((response) => response.json())
+    };
+
+    //hace la solicitud de usuarios almacenados en db
+    fetch("http://localhost:8080/api/login/", requestOptions)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Error en la solicitud: " + response.statusText);
+            }
+            return response.json();
+        })
         .then((result) => {
             console.log(result);
-            usuariosArray=result;
-            console.log("================")
-            console.log(usuariosArray)
-            validateUserInDB();
-        })
-        .catch((error) => console.error(error));
-
-    function validateUserInDB(){
-          //variable bandera
-    let usuarioEcnontrado=false;
-    //traer lista de usuarios
-       // let usersLocalDb= JSON.parse(localStorage.getItem('usuariosDb')) || [];
-        //borrar alertas y coloca el texto
-         borrarError(document.getElementById('loginEmail'),'Email (nombre de usuario)');
-         borrarError(document.getElementById('loginPassword'),'Contraseña');
-       // ciclo foreach donde se compara el correo y la contraseña
-    
-        usuariosArray.forEach(element => {
-            if (usuarioLoginValid.value===element.email && passLoginValid.value===element.password) {
-                usuarioEcnontrado=true
+            if (result.token && result.usuario) {
+                //agregar el token y el usuario logeado al local storage
+                localStorage.setItem("token", result.token.accessToken);
+                localStorage.setItem("usuarioLoged", JSON.stringify(result.usuario));
+                
+                // Muestra un mensaje de éxito
                 swal({
                     title: "Inicio exitoso!",
-                    text: `Bienvenido, ${element.nombre}`,
+                    text: `Bienvenido, ${result.usuario.full_name}`,
                     icon: "success",
                     button: "OK",
-                    
-                });//if
-                //agregar usuario logeado al local storage
-                localStorage.setItem("usuarioLoged",JSON.stringify(element))
-                //borra los campos en caso de ser exitoso
-                usuarioLoginValid.value=""
-                passLoginValid.value=""
-                //lleva a el feed despues de 3s
+                });
+
+                 //lleva a el feed despues de 3s
                 setTimeout(() => {
-                    window.location.href="../WebPages/feed.html"
-                    
-                }, 2500);//set time out
-                
-            }//if
-           
-        });//foreach
-    
-        if(!usuarioEcnontrado){
-            //muestra un error dentro del campo del email
-            mostrarError(document.getElementById('loginEmail'),'Usuario o contraseña no coinciden');
-        }//if
-    
-    }//validate user in db
-  
-});//btn validate
+                    window.location.href = "../WebPages/feed.html";
+                }, 2500);
+            } else {
+                //muestra un error dentro del campo del email
+                mostrarError(document.getElementById('loginEmail'), 'Usuario o contraseña no coinciden');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            mostrarError(document.getElementById('loginEmail'), 'Error en la solicitud, intenta nuevamente');
+        });
+});;//btn validate
 
 
 //===========funcion para borrar alertas=============
