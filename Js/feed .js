@@ -244,7 +244,7 @@ const initialRecipes = [
         'description': 'japanese Meat Casserole',
         'userFirstName':'Ricardo' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
+        'comentarios':[],
         'cuisine':'Cocina de autor',
         'date': 45648456
         // Agregar tipo de cocina
@@ -255,7 +255,7 @@ const initialRecipes = [
         'description': 'French duck recipe',
         'userFirstName':'Jesus' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
+        'comentarios':[],
         'cuisine':'Cocina de vanguardia',
         'date': 4564686456
         // Agregar tipo de cocina
@@ -266,7 +266,7 @@ const initialRecipes = [
         'description':'indian Curry,Vegetarian,Cake',
         'userFirstName':'Alberto' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
+        'comentarios':[],
         'cuisine':'Cocina fusión',
         'date': 86456456456
     },
@@ -275,7 +275,7 @@ const initialRecipes = [
         'description':'malaysian chicken recipe ',
         'userFirstName':'Francisco' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
+        'comentarios':[],
         'cuisine':'Alta cocina',
         'date': 4564852312
     },
@@ -284,7 +284,7 @@ const initialRecipes = [
         'description':'Tart,Baking,Fruity recipe',
         'userFirstName':'Jess' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
+        'comentarios':[],
         'cuisine':'Cocina creativa',
         'date': 89654356354
     },
@@ -293,7 +293,7 @@ const initialRecipes = [
         'description':'Pudding recipe',
         'userFirstName':'Enrique' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
+        'comentarios':[],
         'cuisine':'Cocina de autor',
         'date': 4565463696323
     },
@@ -302,7 +302,7 @@ const initialRecipes = [
         'description':'Malaysian dessert recipe',
         'userFirstName':'Jesus' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
+        'comentarios':[],
         'cuisine':'Nouvelle cuisine',
         'date': 456832135348
     }
