@@ -3,19 +3,28 @@ const userText = document.getElementById('exampleFormControlTextarea1');
 const tituloText = document.getElementById('tituloText');
 const errorSpanText = document.getElementById('textAreaError');
 const errorSpanTitle = document.getElementById('fileError');
-let nameLog="";
-let lastNameLog="";
+let nameLog = "";
+let lastNameLog = "";
 
-if(localStorage.getItem('usuarioLoged')!=null){
-     usuarioLoged= JSON.parse(localStorage.getItem('usuarioLoged'));
-     nameLog=usuarioLoged.nombre;
-     lastNameLog=usuarioLoged.apellido
+if (localStorage.getItem('usuarioLoged') != null) {
+    const usuarioLoged = JSON.parse(localStorage.getItem('usuarioLoged'));
+    nameLog = usuarioLoged.nombre;
+    lastNameLog = usuarioLoged.apellido;
 }
 
 // Función para manejar el cambio en el select de tipo de cocina
 function assignCuisine(event) {
     const selectedCuisine = event.target.value; // Obtiene el valor seleccionado
     console.log(`Tipo de cocina seleccionado: ${selectedCuisine}`);
+}
+
+function saveInLocalStorage(publicationData) {
+    let publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+    if (!Array.isArray(publications)) {
+        publications = [];
+    }
+    publications.push(publicationData);
+    localStorage.setItem('publicationData', JSON.stringify(publications));
 }
 
 // Añade el evento onchange en el select
@@ -55,21 +64,63 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
             img: imageUrl,
             description: userText.value,
             name: tituloText.value,
-            cuisine: tipoCocina, 
-            comments: [],
-            userFirstName:nameLog ,
+            cuisine: tipoCocina,
+            comments: [""],
+            userFirstName: nameLog,
             userLastName: lastNameLog,
-            date: Date.now() // Añadir la fecha aquí
+            date: new Date (Date.now()).toISOString()
         };
 
-        let publications = JSON.parse(localStorage.getItem('publicationData')) || [];
-        if (!Array.isArray(publications)) {
-            publications = [];
-        }
-        publications.push(publicationData);
-        localStorage.setItem('publicationData', JSON.stringify(publications));
+        // Guardar en local storage
+        saveInLocalStorage(publicationData);
 
-        // Redirigir a otra página
-        window.location = '../WebPages/feed.html';
+        // Preparar los datos para la solicitud
+        const myHeaders = new Headers({
+            "Content-Type": "application/json"
+        });
+
+        // Convertir publicationData a JSON
+        const raw = JSON.stringify(publicationData);
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
+
+        // Mandar guardar a base de datos
+        fetch("http://localhost:8080/api/post/", requestOptions)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json(); // Cambia a json si esperas un objeto JSON de respuesta
+                } else {
+                    throw new Error("Error en la solicitud");
+                }
+            })
+            .then((result) => {
+                console.log(result);
+                swal({
+                    title: "¡Receta Publicada!",
+                    text: "Su cuenta ha sido registrada con éxito.",
+                    icon: "success",
+                    button: "OK"
+                }).then(() => {
+                    // Limpiar campos
+                    userText.value = "";
+                    tituloText.value = "";
+                    // Redirigir a otra página
+                    window.location = '../WebPages/feed.html';
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                swal({
+                    title: "¡Error!",
+                    text: "Hubo un problema al publicar su contenido. Inténtelo de nuevo.",
+                    icon: "error",
+                    button: "OK"
+                });
+            });
     }
 });
