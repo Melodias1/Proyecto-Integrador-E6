@@ -68,7 +68,7 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
             comments: [""],
             userFirstName: nameLog,
             userLastName: lastNameLog,
-            date: new Date (Date.now()).toISOString()
+            date: Date.now().toString() // Añadir la fecha aquí
         };
 
         // Guardar en local storage

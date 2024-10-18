@@ -11,8 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filterCocinaSelect) {
         filterCocinaSelect.addEventListener('change', filterPublications);
     }
+    const publicationsContainer = document.getElementById("publicationsContainer");
+
+    // Escuchar clics en el contenedor de publicaciones
+    publicationsContainer.addEventListener('click', function(event) {
+        // Verificar si el clic fue en un botón de hacer comentario
+        if (event.target.matches('.btn-primary')) {
+            // Obtener la fecha asociada con la tarjeta en la que se hizo clic
+            const date = event.target.getAttribute('data-date');
+            addComment(event, date);
+        }
+    });
+
     initializePublications(); 
     loadPublications();
+    
+
 });
 
 
@@ -74,7 +88,7 @@ function addItem(item) {
                         <h6>Comentarios:</h6>
                         <div class="comments-list" style="max-height: 150px; overflow-y: auto;"></div>
                         <textarea class="form-control" placeholder="Escribe un comentario..." rows="2" style="resize:none"></textarea>
-                        <a href="#" class="btn btn-primary mt-2" onclick="addComment(event,'${item.date}')">Hacer Comentario</a>
+                        <a href="#" class="btn btn-primary mt-2" data-date="${item.date}">Hacer Comentario</a>
                         <button class="btn btn-danger mt-2" onclick="removeRecipe(event,'${item.name}')">Eliminar Publicación</button>
                     </div>
                 </div>
@@ -84,6 +98,8 @@ function addItem(item) {
     </div>`;
 
     publicationsContainer.insertAdjacentHTML("afterbegin", itemHTML);
+
+   
 }//function addItem
 
 
@@ -145,34 +161,34 @@ function removeFromLocalStorage(name){
 
 }
 
-function addComment(event,date) {
-    event.preventDefault();
-    const commentTextarea = document.querySelector(`#comments-${date} textarea`);
-    const commentText = commentTextarea.value;
+// function addComment(event,date) {
+//     event.preventDefault();
+//     const commentTextarea = document.querySelector(`#comments-${date} textarea`);
+//     const commentText = commentTextarea.value;
 
-    if (commentText) {
-        const commentsList = document.querySelector(`#comments-${date} .comments-list`);
-        const newComment = document.createElement('div');
-        newComment.classList.add('comment');
-        newComment.textContent = commentText;
-        commentsList.appendChild(newComment);
+//     if (commentText) {
+//         const commentsList = document.querySelector(`#comments-${date} .comments-list`);
+//         const newComment = document.createElement('div');
+//         newComment.classList.add('comment');
+//         newComment.textContent = commentText;
+//         commentsList.appendChild(newComment);
 
-        const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
-        const publicationIndex = publications.findIndex(pub => pub.date === date);
+//         const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+//         const publicationIndex = publications.findIndex(pub => pub.date === date);
 
-        if (publicationIndex !== -1) {
-            if (!publications[publicationIndex].comments) {
-                publications[publicationIndex].comments = [];
-            }
-            publications[publicationIndex].comments.push(commentText);
-            localStorage.setItem('publicationData', JSON.stringify(publications));
-        }
+//         if (publicationIndex !== -1) {
+//             if (!publications[publicationIndex].comments) {
+//                 publications[publicationIndex].comments = [];
+//             }
+//             publications[publicationIndex].comments.push(commentText);
+//             localStorage.setItem('publicationData', JSON.stringify(publications));
+//         }
 
-        commentTextarea.value = ''; // Limpiar el textarea
-        // updateTrendingRecipes(); // Actualiza las tendencias
-        agregarAlJson(date);
-    }
-}
+//         commentTextarea.value = ''; // Limpiar el textarea
+//         // updateTrendingRecipes(); // Actualiza las tendencias
+//         agregarAlJson(date);
+//     }
+// }
 
 
 function updateAssignedCuisines() {
@@ -228,8 +244,9 @@ const initialRecipes = [
         'description': 'japanese Meat Casserole',
         'userFirstName':'Ricardo' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
-        'cuisine':'Cocina de autor'
+        'comentarios':[],
+        'cuisine':'Cocina de autor',
+        'date': 45648456
         // Agregar tipo de cocina
     },
     {
@@ -238,8 +255,9 @@ const initialRecipes = [
         'description': 'French duck recipe',
         'userFirstName':'Jesus' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
-        'cuisine':'Cocina de vanguardia'
+        'comentarios':[],
+        'cuisine':'Cocina de vanguardia',
+        'date': 4564686456
         // Agregar tipo de cocina
     },
     {
@@ -248,42 +266,82 @@ const initialRecipes = [
         'description':'indian Curry,Vegetarian,Cake',
         'userFirstName':'Alberto' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
-        'cuisine':'Cocina fusión'
+        'comentarios':[],
+        'cuisine':'Cocina fusión',
+        'date': 86456456456
     },
     {'name':'Ayam Percik',
         'img':'https://www.themealdb.com/images/media/meals/020z181619788503.jpg',
         'description':'malaysian chicken recipe ',
         'userFirstName':'Francisco' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
-        'cuisine':'Alta cocina'
+        'comentarios':[],
+        'cuisine':'Alta cocina',
+        'date': 4564852312
     },
     {'name':'Apple Frangipan Tart',
         'img':'https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg',
         'description':'Tart,Baking,Fruity recipe',
         'userFirstName':'Jess' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
-        'cuisine':'Cocina creativa'
+        'comentarios':[],
+        'cuisine':'Cocina creativa',
+        'date': 89654356354
     },
     {'name':'Apple & Blackberry Crumble',
         'img':'https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg',
         'description':'Pudding recipe',
         'userFirstName':'Enrique' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
-        'cuisine':'Cocina de autor'
+        'comentarios':[],
+        'cuisine':'Cocina de autor',
+        'date': 4565463696323
     },
     {'name':'Apam balik',
         'img':'https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg',
         'description':'Malaysian dessert recipe',
         'userFirstName':'Jesus' ,
         'userLastName': 'GuarniApp',
-        'comentarios':'',
-        'cuisine':'Nouvelle cuisine'
+        'comentarios':[],
+        'cuisine':'Nouvelle cuisine',
+        'date': 456832135348
     }
     // Agrega más recetas aquí...
 ];
-
+// generacion de cards
 initialRecipes.forEach(recipe => addItem(recipe));
+
+
+
+
+function addComment(event,date) {
+    event.preventDefault();
+    const commentTextarea = document.querySelector(`#comments-${date} textarea`);
+    const commentText = commentTextarea.value;
+
+    if (commentText) {
+        const commentsList = document.querySelector(`#comments-${date} .comments-list`);
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        newComment.textContent = commentText;
+        commentsList.appendChild(newComment);
+
+        const publications = JSON.parse(localStorage.getItem('publicationData')) || [];
+        const publicationIndex = publications.findIndex(pub => pub.date === date);
+
+        if (publicationIndex !== -1) {
+            if (!publications[publicationIndex].comments) {
+                publications[publicationIndex].comments = [];
+            }
+            publications[publicationIndex].comments.push(commentText);
+            localStorage.setItem('publicationData', JSON.stringify(publications));
+        }
+
+        commentTextarea.value = ''; // Limpiar el textarea
+        // updateTrendingRecipes(); // Actualiza las tendencias
+        agregarAlJson(date);
+    }//addComment
+
+
+    
+}
