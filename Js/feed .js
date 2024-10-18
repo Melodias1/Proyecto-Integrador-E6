@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addComment(event, date);
         }
     });
+    
 
     initializePublications(); 
     loadPublications();
@@ -144,18 +145,7 @@ function agregarAlJson(date){
     }
 }
 
-function removeRecipe(event,name) {
-    event.preventDefault();
-    const itemsContainer = document.getElementById("list-items");
-    const cards = itemsContainer.getElementsByClassName('card-title');
-    for (let card of cards) {
-        if (card.textContent === name) {
-            card.closest('.col-sm-12').remove();
-            break;
-        }
-    }
-    //removeFromLocalStorage(name);
-}
+
 
 function removeFromLocalStorage(name){
 

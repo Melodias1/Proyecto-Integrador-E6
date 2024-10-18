@@ -8,8 +8,9 @@ let lastNameLog = "";
 
 if (localStorage.getItem('usuarioLoged') != null) {
     const usuarioLoged = JSON.parse(localStorage.getItem('usuarioLoged'));
-    nameLog = usuarioLoged.nombre;
-    lastNameLog = usuarioLoged.apellido;
+    nameLog = usuarioLoged.full_name;
+    usuarioid=usuarioLoged.id;
+    
 }
 
 // Función para manejar el cambio en el select de tipo de cocina
@@ -67,9 +68,16 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
             cuisine: tipoCocina,
             comments: [""],
             userFirstName: nameLog,
-            userLastName: lastNameLog,
             date: Date.now().toString() // Añadir la fecha aquí
         };
+        const publicationDB ={
+            postFile: imageUrl,
+            postDescription: userText.value,
+            postTitle: tituloText.value,
+            user_iduser: usuarioid,
+            categoria_idcategoria:1,
+            postDate: Date.now().toString() // Añadir la fecha aquí
+        }
 
         // Guardar en local storage
         saveInLocalStorage(publicationData);
@@ -80,7 +88,7 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
         });
 
         // Convertir publicationData a JSON
-        const raw = JSON.stringify(publicationData);
+        const raw = JSON.stringify(publicationDB);
 
         const requestOptions = {
             method: "POST",
@@ -102,7 +110,7 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
                 console.log(result);
                 swal({
                     title: "¡Receta Publicada!",
-                    text: "Su cuenta ha sido registrada con éxito.",
+                    text: "Su receta ha sido publciada con éxito.",
                     icon: "success",
                     button: "OK"
                 }).then(() => {

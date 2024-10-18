@@ -247,6 +247,7 @@ btnLogin.addEventListener("click", (event) => {
             console.log(result);
             if (result.token && result.usuario) {
                 //agregar el token y el usuario logeado al local storage
+                console.log(result.usuario)
                 localStorage.setItem("token", result.token.accessToken);
                 localStorage.setItem("usuarioLoged", JSON.stringify(result.usuario));
                 

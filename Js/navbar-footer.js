@@ -77,7 +77,7 @@ window.addEventListener('load', function() {
 // validacion si hay un usuario logueado, de haberlo carga la primera navbar, de no haberlo carga la segunda
 if(localStorage.getItem('usuarioLoged')!=null){
     const userLogged = JSON.parse(localStorage.getItem('usuarioLoged'));
-    const userName = userLogged.nombre;
+    const userName = userLogged.full_name;
 
      navBar=`<nav class="navbar navbar-expand-md bg-white ">
         <div class="container-fluid navbar-container">
