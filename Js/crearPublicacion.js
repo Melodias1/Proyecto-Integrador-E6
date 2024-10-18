@@ -59,7 +59,7 @@ document.getElementById("btnPublicar").addEventListener("click", function(event)
             comments: [],
             userFirstName:nameLog ,
             userLastName: lastNameLog,
-            date: Date.now() // Añadir la fecha aquí
+            date: Date.now().toString() // Añadir la fecha aquí
         };
 
         let publications = JSON.parse(localStorage.getItem('publicationData')) || [];
